@@ -5,7 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clase 1 Laboratorio</title>
     <script type="text/javascript">
-    
+    var numero;
+        numero = 1;
+        if(numero == "1"){ //el doble igual comparar el valor, el triple igual compara el valor y el tipo de variable (int, string)
+            alert("son iguales");
+        }
+        else{
+            alert("no son iguales");
+        }
+        numero = "hola";
+        if (numero === "hola") {
+            alert("SON IGUALES");
+        }
+        else{
+            alert("NO SON IGUALES");
+        }
+
+        saludar(1,2);
+        function saludar(a,b,c){
+            alert(a);
+            alert(c); //si no hay nada en el valor es de tipo undefined
+        }
+        
     </script>
 </head>
 <body>
