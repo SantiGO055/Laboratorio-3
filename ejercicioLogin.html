@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script type="text/javascript">
+    
+    function validar(){
+        var user = document.getElementById("user");
+        var password = document.getElementById("password");
+
+        console.log(user + " " + password);
+        if (user.value == "user" && password.value) {
+            alert("Usuario y pass correctos");
+        }else{
+            alert("Usuario y pass incorrectos");
+        }
+    }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend id="legend">
+            Login
+        </legend>
+    
+    <label >User:</label>
+    <input name="user" id="user" type="text" tabindex="1" />
+    
+    <label >Password:</label>
+    
+    <input name="password" id="password" type="text" tabindex="2" />
+    <br>
+    <br>
+
+    <input name="enviar" id="enviar" type="button" tabindex="3" value="Enviar" onclick="validar()"/>
+    <input name="limpiar" id="limpiar" type="button" tabindex="4" value="Limpiar" onclick="limpiar()"/>
+
+
+    </fieldset>
+    
+</body>
+</html>
