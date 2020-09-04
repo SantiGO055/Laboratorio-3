@@ -4,41 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <script type="text/javascript">
-    //la siguiente funcion ejecutara la funcion cargar una vez que se cargue todo el html
-    window.addEventListener("load",cargar);
-    //el primer parametro le pongo nombre al evento, nunca con parentesis
-    //el segundo parametro es una variable que apunta a una funcion
-
-    //se puede usar window.onload = cargar; es lo mismo pero solo se puede asignar un solo puntero a funcion
-
-    function cargar(){
-        var botonEnviar = document.getElementById("enviar");
-        var botonLimpiar = document.getElementById("limpiar");
-        botonEnviar.addEventListener("click",validarUsuarioPass); //asigno la funcion validar al evento del boton enviar
-        botonLimpiar.addEventListener("click",limpiar);
-    }
-    function validarUsuarioPass(){
-        var user = document.getElementById("user");
-        var password = document.getElementById("password");
-        
-        // alert(botonEnviar.value) si hago esto todavia no se creo el boton y no lo muestra;
-
-        console.log(user + " " + password);
-        if (user.value == "user" && password.value == "1234") {
-            alert("Usuario y pass correctos");
-        }else{
-            alert("Usuario y pass incorrectos");
-        }
-    }
-    function limpiar(){
-        var user = document.getElementById("user");
-        var password = document.getElementById("password");
-
-        user.value = "";
-        password.value = "";
-    }
-    </script>
+    <script src="./funciones.js"></script>
 </head>
 <body>
     <fieldset>
@@ -59,9 +25,84 @@
     <!-- el onclick cambiarlo para desde el codigo de javascript usar eventos -->
     <input name="enviar" id="enviar" type="button" tabindex="3" value="Enviar"/>
     <input name="limpiar" id="limpiar" type="button" tabindex="4" value="Limpiar"/>
-
+        
+        <a href="./recordar.html">Olvidaste tu contraseña?</a>
 
     </fieldset>
-    
+    <br>
+    <br>
+    <a href="https://github.com/SantiGO055">Mi Github</a>
+    <br>
+    <audio controls> <!-- si no pongo controls no muestra nada -->
+        <source src="./music.mp3">
+    </audio>
+
+    <br>
+    <br>
+
+    <!--  -->
+    <form method="GET" name="frm" id="frm">
+        <input type="text" name="" id="">
+        <input type="submit" name="enviar" id="enviar" value="Enviar"/>
+        <input type="submit" name="limpiar" id="limpiar" value="Limpiar">
+        <input type="reset">
+    </form>
+
+
+
+    <br>
+    <video controls>
+        <source src="music.mp4">
+    </video>
+    <table border="1">
+        <thead>
+            <!-- //abreviatura de table row -->
+            <tr> 
+                <!-- columnas: -->
+                <th>Nombre</th> 
+                <th>Apellido</th>
+
+                
+                
+            </tr>
+            <!-- los tr ocupan el 100% de la tabla y no de la pantalla como pasa con etiquetas h1 -->
+            <tr>
+                <!-- celdas:  -->
+                <td>Juan</td>
+                <td>Perez</td>
+
+            </tr>
+            <tr>
+                <!-- celdas:  -->
+                <td>Juan</td>
+                <td>Perez</td>
+
+            </tr>
+            <tr>
+                <!-- celdas:  -->
+                <td>Juan</td>
+                <td>Perez</td>
+
+            </tr>
+            <tr>
+                <!-- celdas:  -->
+                <td>Juan</td>
+                <td>Perez</td>
+
+            </tr>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+        <tfoot>
+
+
+        </tfoot>
+
+    </table>
+
+
+
 </body>
 </html>
