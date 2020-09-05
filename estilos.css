@@ -1,0 +1,35 @@
+p,h1{
+    color:red;
+    font-size: 25px;
+}
+.ital{
+    font-style: italic;
+}
+input.textoGrande{ /* este es menos pesado que #user */
+    font-size: 50px;
+}
+
+#user{ /* se mostrara este por el peso, es mas pesado este que el de arriba */
+    font-size: 20px;
+}
+span{
+    font-weight: bold;
+}
+
+.boton{
+    background-color: rgba(0, 128, 0, 0.733);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 15px; /* distancia entre margenes de boton y contenido */
+    margin: 8px 20px;/* distancia del elemento completo con los otros elementos */
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    width: 15%; /* ancho */
+    height: 15%; /* alto */
+
+}
+.boton:hover{
+    background-color: rgb(1, 56, 1);
+}

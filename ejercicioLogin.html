@@ -6,15 +6,18 @@
     <title>Login</title>
     <script type="text/javascript" src="./funciones.js"></script> <!-- en este archivo NO puedo usar codigo de funciones2.js -->
     <script type="text/javascript" src="./funciones2.js"></script> <!-- en este archivo puedo usar codigo de funciones.js -->
+    <link rel="stylesheet" href="./estilos.css"></link>
 </head>
 <body>
+    <h1 class="ital">Login</h1>
     <fieldset>
         <legend id="legend">
             Login
         </legend>
     <!-- el for lo uso para hacerle click al texto label y que lleve al campo user que en este caso busca el id -->
+    
     <label for="user">User:</label> 
-    <input name="user" id="user" type="text" tabindex="1" />
+    <input name="user" class="textoGrande" id="user" type="text" tabindex="1" />
     
     <label for="password">Password:</label>
     
@@ -24,8 +27,8 @@
     <input type="checkbox" name= "remember" value="remember"/>Recordar usuario y contraseña
     <br>
     <!-- el onclick cambiarlo para desde el codigo de javascript usar eventos -->
-    <input name="enviar" id="enviar" type="button" tabindex="3" value="Enviar"/>
-    <input name="limpiar" id="limpiar" type="button" tabindex="4" value="Limpiar"/>
+    <input name="enviar" class="boton" id="enviar" type="button" tabindex="3" value="Enviar"/>
+    <input name="limpiar"class="boton" id="limpiar" type="button" tabindex="4" value="Limpiar"/>
         
         <a href="./recordar.html">Olvidaste tu contraseña?</a>
 
@@ -33,15 +36,15 @@
     <br>
     <br>
     <a href="https://github.com/SantiGO055">Mi Github</a>
+    
     <br>
-    <audio controls> <!-- si no pongo controls no muestra nada -->
-        <source src="./music.mp3">
-    </audio>
+    
+    <!--  <audio controls>  si no pongo controls no muestra nada <source src="./music.mp3"></audio>-->
 
     <br>
     <br>
 
-    <!--  -->
+    <!--
     <form method="GET" name="frm" id="frm">
         <input type="text" name="" id="">
         <input type="submit" name="enviar" id="enviar" value="Enviar"/>
@@ -55,6 +58,7 @@
     <video controls>
         <source src="music.mp4">
     </video>
+    -->
     <table border="1">
         <thead>
             <!-- //abreviatura de table row -->
