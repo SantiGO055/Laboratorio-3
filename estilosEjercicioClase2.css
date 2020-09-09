@@ -1,0 +1,79 @@
+
+.ingresoDatos{
+    background-color: rgb(199, 199, 199);
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    /*padding: 1px 50% 1px 0px;*/
+    width: 50%;
+    height: 50%;
+}
+
+.campos{
+    border-radius: 3px;
+    border: none;
+    padding: 3% 2%;
+    margin: 8px 5px;
+    
+    
+}
+.nombre{
+    padding: 8px 20% 8px 8px;
+    margin: 8px 5px 8px 0px;
+    text-align: left;
+    border-radius: 3px;
+    border: none;
+
+    
+}
+.apellido{
+    padding: 8px 20% 8px 8px;
+    margin: 8px 5px 8px 0px;
+    border-radius: 3px;
+    border: none;
+}
+
+.boton{
+    background-color: rgba(0, 128, 0, 0.733);
+    border: none;
+    color: white;
+    border-radius: 3px;
+    padding: 8px 30% 8px 15%; /* distancia entre margenes de boton y contenido */
+    margin: 8px 5px 8px 0px;/* distancia del elemento completo con los otros elementos */
+    
+    font-size: 100%;
+    cursor: pointer;
+    width: 15%; /* ancho */
+    height: 15%; /* alto */
+
+}
+
+.borrar{
+    background-color: rgba(0, 128, 0, 0.733);
+    border: none;
+    color: white;
+    border-radius: 3px;
+    padding: 8px 30% 8px 15%; /* distancia entre margenes de boton y contenido */
+    margin: 8px 5px 8px 0px;/* distancia del elemento completo con los otros elementos */
+    
+    font-size: 100%;
+    cursor: pointer;
+}
+th{
+    padding: 0px 30% 8px 0%;
+}
+.boton:hover{
+    background-color: rgb(1, 56, 1);
+}
+input{
+    padding: 0px;
+}
+.error{
+    border:2px solid red;
+}
+html{
+    font-family: 'Roboto', sans-serif;
+}
+.tabla{
+    padding: 0px 30% 8px 5%;
+}
