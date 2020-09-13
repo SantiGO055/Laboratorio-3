@@ -5,7 +5,7 @@ function validar(){
     var nombre = document.getElementById("nombre");
     var apellido = document.getElementById("apellido");
     var boton = document.getElementById("boton");
-    var mostrarDiv = document.getElementById("botonDiv");
+    var mostrarDiv = document.getElementById("botonMostrarDiv");
     var esconderDiv = document.getElementById("btnEsconder");
     var eliminarCelda = document.getElementById("eliminarCelda");
 

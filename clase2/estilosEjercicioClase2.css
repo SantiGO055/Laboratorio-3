@@ -33,7 +33,7 @@
     margin: 8px 5px;
 }
 input[type=text]{
-    padding: 8px 20% 8px 8px;
+    padding: 5% 4% 3% 2%;
     margin: 8px 5px 8px 0px;
     text-align: left;
     border-radius: 3px;
@@ -52,13 +52,13 @@ input[type=text]{
     
 }
 
-.botonDiv{
+.botonMostrarDiv{
     background-color: rgba(0, 128, 0, 0.733);
     color: white;
     border-radius: 3px;
     padding: 8px 15%; /* distancia entre margenes de boton y contenido */
     margin: 8px 5px 8px 0px; /*distancia del elemento completo con los otros elementos*/
-    box-shadow: 10px 5px 6px 0px lightgreen;
+    
     text-align: center;
     height: 15%; /* alto */
     position: relative;
@@ -94,21 +94,11 @@ input[type=button]{
     background-color: red;
     border-radius: 6px;
 }
-#botonDiv{
+#botonMostrarDiv{
     right:-25%;
 }
 
-.borrar{
-    background-color: rgba(0, 128, 0, 0.733);
-    border: none;
-    color: white;
-    border-radius: 3px;
-    padding: 8px 30% 8px 15%; 
-    margin: 8px 5px 8px 0px;
-    
-    font-size: 100%;
-    cursor: pointer;
-}
+
 .tabla{
     padding: 0px 30% 8px 5%;
     width: 100%;
@@ -127,9 +117,14 @@ tr:nth-child(even){
 }
 
 .boton:hover{
-    background-color: rgb(1, 56, 1);
+    background-color:  rgb(14, 71, 14);
 }
-
+.botonMostrarDiv:hover{
+    background-color: rgb(14, 71, 14);
+}
+.btnEsconder:hover{
+    background-color:  rgb(128, 9, 9);
+}
 .inputSinError{
     border: none;
 }

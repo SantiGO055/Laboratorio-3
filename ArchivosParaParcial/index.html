@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mi formulario</title>
+        <link rel="stylesheet" href="./botones.css"></link>
+        <link rel="stylesheet" href="./menu.css"></link>
+        <script type="text/javascript" src="./menu.js"></script>
+        <script type="text/javascript" src="./validaciones.js"></script>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <div class="divLogin">
+        <input name="esconderDiv" class="botonMostrarDiv" id="botonMostrarDiv" type="button" tabindex="3" value="Mostrar DIV"/>
+        <div id="div" class="div" hidden>
+            <div class="campos" id="campos">
+                
+                
+                <label for="usuario">Usuario:</label>
+                <br> 
+                <input name="usuario" class="inputSinError inputError" id="usuario" type="text" tabindex="1"placeholder="Tu usuario..." />
+                <br>
+                <label for="contraseña">Contraseña:</label>
+                <br>
+                <input name="contraseña" class="inputSinError inputError" id="contraseña" type="password" tabindex="2" placeholder="Tu contraseña..." />
+            
+                <br>
+                <!-- el onclick cambiarlo para desde el codigo de javascript usar eventos -->
+                <input name="iniciarSesion" class="botonVerde" id="botonIniciarSesion" type="button" tabindex="3" value="Iniciar Sesion"/>
+            </div>
+            
+        </div>
+    </div>
+
+
+</body>
+</html>
