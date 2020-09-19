@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*cualquier peticion post o get lo hacemos con este objeto*/
+        var peticionHttp = new XMLHttpRequest();
+
+        peticionHttp.onreadystatechange = callBack;
+
+        peticionHttp.open("GET","http://localhost:3000/loginUsuario",true); //el true es para indicar si es asincrona o no
+        //el metodo va por get entonces en el send no va ningun parametro
+        peticionHttp.send();
+
+        /*funcion que se ejecuta cuando el servidor tenga la respuesta*/
+        function callBack(){
+            //el servidor responde con un estado que es un numero, un 200 si esta ok
+            if (peticionHttp.readyState === 4) {
+                console.log("respuestas");
+                if (peticionHttp.status === 200) {
+                    console.log(peticionHttp.responseText);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

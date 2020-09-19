@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .divFlex{
+        display: flex;
+    }
+    .contenedor{
+        background-color: rgb(190, 181, 170);
+        width: 50%;
+        border-radius: 5px;
+        padding: 20px;
+        /* con position ponemos top y left para centrarlo*/
+        position: fixed;
+        top: 25%;
+        left: 25%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+      input[type=button] {  
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        width: 25%;
+      }
+      #btnOpen{
+        border-radius: 50%;
+        padding: 3px;
+        width:3rem;
+        height: 3rem;
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
+      #btnC{
+          background-color:rgb(180, 41, 41);
+      }
+      table{
+      width: 100%;
+      border-collapse: collapse;
+      }
+      th,td{
+          text-align:left ;
+          padding: 8px;
+      }
+      th{
+          background-color: rgb(65, 138, 65);
+          color:white;
+      }
+
+      tr:nth-child(even){
+          background-color: bisque;    
+      }
+    </style>
+    <script>
+        
+        function abrir(){
+          var formulario = document.getElementById("formulario");
+          formulario.hidden=false;
+          var btn = document.getElementById("btnOpen");
+          btn.hidden=true;
+        }
+        function cerrar(){
+          var formulario = document.getElementById("formulario");
+          formulario.hidden=true;
+          var btn = document.getElementById("btnOpen");
+          btn.hidden=false;
+        }
+    </script>
+</head>
+<body>
+
+    <input id="btnOpen" type="button" value="+" onclick="abrir()"/>
+  <div id="formulario" class="contenedor" hidden="true">
+    
+    <label for="fname">Nombre</label>
+    <br>
+    <input type="text" id="fname" class="sinError" name="firstname" placeholder="Tu nombre..">
+    <br>
+    <label for="lname">Apellido</label>
+    <br>
+    <input type="text" id="lname" class="sinError" name="lastname" placeholder="Tu apellido..">
+    <br>
+    <div class="divFlex">
+        <input type="button" value="Guardar" onclick="agregar();">
+        <input id="btnC"  type="button" value="Cancelar" onclick="cerrar()">
+    </div>
+ 
+</div>
+
+<h2>Lista de personas</h2>
+<table id="tabla">
+  <thead>
+<tr>
+  <th>Nombre</th>
+  <th>Apellido</th>
+  <th>Accion</th>
+</tr>
+</thead>
+<tbody id="tCuerpo">
+<tr>
+  <td>Peter</td>
+  <td>Griffin</td>
+  <td><a href="">borrar</a></td>
+</tr>
+<tr>
+  <td>Lois</td>
+  <td>Griffin</td>
+  <td><a href="">borrar</a></td>
+</tr>
+<tr>
+  <td>Joe</td>
+  <td>Swanson</td>
+  <td><a href="">borrar</a></td>
+</tr>
+<tr>
+  <td>Cleveland</td>
+  <td>Brown</td>
+  <td><a href="">borrar</a></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

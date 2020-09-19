@@ -1,2 +1,38 @@
-REM:
-rem o 'root em'. es una medida 
+rem O 'root em'. Es una medida relativa no a su elemento padre, sino al elemento root. Es decir, al contenedor principal html. 1rem = 16px
+El pixel es una unidad absoluta. No es una unidad escalable: no guarda relacion con la medida de la fuente de su contenedor o del contenedor root. Varia dependiendo de la resolucion del dispositivo utilizado.
+Para texto usamos si o si rem
+
+display: flex;
+Se usa para que lo que contenga este uno al lado del otro
+Siempre que el display este en flex, se pueden seleccionar propiedades
+flex-direction, justify-content y align-items
+Lo puedo usar para hacer una barra de navegacion por ejemplo
+
+depende de la flex-direction se va a mover, si esta en rox, justify-content mueve de izquierda a derecha y align-items los mueve de arriba hacia abajo
+si flex-direction esta en column justify-content mueve de arriba hacia abajo y align-items los mueve de izquierda a derecha
+
+Para que se vayan solapando los items a medida que achica la imagen se usa:
+flex-wrap: wrap
+Siempre y ucando el display sea display: flex
+
+
+la propiedad flex-grow definida en los hijos, elijo que numero darle a cada contenedor hijo, todos los numeros que les di los sumo y le doy 
+fracciones, si tengo 3 div y les doy los numeros 1 al div 1, 2 al div 2 y 1 al div 1, los divido en 4tos
+
+Siempre al ir creando divs y poniendo fondo hay que dar espacio para que se puedan mover
+
+quizas no entendi bien como o para que se usa el flex, yo entendi que se usa para acpmodar lo que este dentro de un contenedor
+pero cual seria la mejor manera de posicionar un div? con top, left y position
+
+
+/TODO
+AJAX:
+Antes al darle a un boton submit se ejecutaba toda la pagina al servidor y luego respondia con otra pagina html.
+Lo que permite hacer javascript permite hacer llamadas asyncronas y enviar al servidor pequeñas partes de codigo
+Sincrono es lo que pasa secuencialmente, cuando hay codigo javascript se ejecuta linea a linea y termina de avanzar cuando en un alert se da aceptar
+La llamada asincrona es como los hilos, maneja el codigo en otro lado.
+Ajax no trabaja con hilos pero tenemos un codigo que se ejecuta en otro momento.
+Parecido al windows on load que se ejecutaba cuando terminaba de cargar el html en el navegador.
+
+
+Hacer ejercicio de LOGIN para que se ejecute la peticion ajax al servidor y devuelva a true o false
