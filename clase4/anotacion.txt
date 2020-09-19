@@ -25,16 +25,16 @@ quizas no entendi bien como o para que se usa el flex, yo entendi que se usa par
 pero cual seria la mejor manera de posicionar un div? con top, left y position
 
 
-/TODO
+
 AJAX:
 Antes al darle a un boton submit se ejecutaba toda la pagina al servidor y luego respondia con otra pagina html.
-Lo que permite hacer javascript permite hacer llamadas asyncronas y enviar al servidor pequeñas partes de codigo
+Lo que permite hacer javascript es hacer llamadas asyncronas y enviar al servidor pequeñas partes de codigo
 Sincrono es lo que pasa secuencialmente, cuando hay codigo javascript se ejecuta linea a linea y termina de avanzar cuando en un alert se da aceptar
 La llamada asincrona es como los hilos, maneja el codigo en otro lado.
 Ajax no trabaja con hilos pero tenemos un codigo que se ejecuta en otro momento.
 Parecido al windows on load que se ejecutaba cuando terminaba de cargar el html en el navegador.
 
 
-//TODO Hacer ejercicio de LOGIN para que se ejecute la peticion ajax al servidor y devuelva a true o false
+Hacer ejercicio de LOGIN para que se ejecute la peticion ajax al servidor y devuelva a true o false
 Hacer funcion para que reciba que metodo quiero ejecutar y que ruta
 de 4 parametros, string metodo, string ruta, function callback

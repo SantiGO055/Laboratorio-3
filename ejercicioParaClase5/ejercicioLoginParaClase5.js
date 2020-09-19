@@ -9,6 +9,7 @@ function validar(){
     var mostrarDiv = document.getElementById("botonMostrarDiv");
     var esconderDiv = document.getElementById("btnEsconder");
     var limpiar = document.getElementById("botonLimpiar");
+    var olvide = document.getElementById("olvide");
     
 
     // var tabla = document.getElementById("tabla"),rIndex,cIndex;
@@ -24,15 +25,15 @@ function validar(){
     enviar.addEventListener("click",validarBoton);
     limpiar.addEventListener("click",limpiarCampos);
     
+    olvide.addEventListener("click",olvidePass);
     
     
 }
 
-
-function funcLimpiar(){
-
-    //TODO hacer funcion para limpiar campos
+function olvidePass(){
+    alert("Usuario: usuario - Pass: 1234")
 }
+
 
 function accionMostrarDiv(){
     document.getElementById("div").hidden = false;     
