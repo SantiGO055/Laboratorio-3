@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script type="text/javascript" src="./ejercicioLoginParaClase5.js"></script> <!-- en este archivo NO puedo usar codigo de funciones2.js -->
+    
+    <link rel="stylesheet" href="./estilos.css"></link>
+    
+</head>
+<body>
+        
+    <input name="esconderDiv" class="botonMostrarDiv" id="botonMostrarDiv" type="button" tabindex="3" value="Mostrar DIV"/>
+    <div id="formulario" class="contenedor">
+    
+        <div id="div" class="div"  hidden>
+            <div class="campos" id="campos">
+                <div class="esconderDiv" name="esconderDiv">
+                    <input type="button" value="X" class="btnEsconder" id="btnEsconder">
+                </div>
+            
+                <label for="user">Usuario:</label>
+                <input name="user" class="inputSinError inputError" id="user" type="text" tabindex="1"placeholder="Usuario..." />
+                <br>
+                <label for="pass">Contraseña:</label>
+                <input name="pass" class="inputSinError inputError" id="pass" type="text" tabindex="2" placeholder="Tu contraseña..." />
+                <br>
+                <input name="guardar" class="boton" id="boton" type="button" tabindex="3" value="Guardar"/>
+            </div>
+        
+        </div>
+        <div class="divFlex">
+            <input name="enviar" class="boton" id="enviar" type="button" tabindex="3" value="Enviar"/>
+            <input name="limpiar"class="boton" id="limpiar" type="button" tabindex="4" value="Limpiar"/>
+        </div>
+        <a href="./recordar.html">Olvidaste tu contraseña?</a>
+
+        <a href="https://github.com/SantiGO055">Mi Github</a>
+     
+    </div>
+    <!-- el onclick cambiarlo para desde el codigo de javascript usar eventos -->
+    
+        
+        
+    
+
+
+
+    
+
+
+
+</body>
+</html>

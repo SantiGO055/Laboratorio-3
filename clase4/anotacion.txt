@@ -35,4 +35,6 @@ Ajax no trabaja con hilos pero tenemos un codigo que se ejecuta en otro momento.
 Parecido al windows on load que se ejecutaba cuando terminaba de cargar el html en el navegador.
 
 
-Hacer ejercicio de LOGIN para que se ejecute la peticion ajax al servidor y devuelva a true o false
+//TODO Hacer ejercicio de LOGIN para que se ejecute la peticion ajax al servidor y devuelva a true o false
+Hacer funcion para que reciba que metodo quiero ejecutar y que ruta
+de 4 parametros, string metodo, string ruta, function callback

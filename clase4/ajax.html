@@ -12,11 +12,14 @@
 
         peticionHttp.onreadystatechange = callBack;
 
-        peticionHttp.open("GET","http://localhost:3000/loginUsuario",true); //el true es para indicar si es asincrona o no
+        //poner en user y pass lo que ingreso el usuario
+        peticionHttp.open("GET","http://localhost:3000/loginUsuario?usr=usuario&pass=1234",true); //el true es para indicar si es asincrona o no
         //el metodo va por get entonces en el send no va ningun parametro
         peticionHttp.send();
 
         /*funcion que se ejecuta cuando el servidor tenga la respuesta*/
+        //llevar la funcion al onclick de boton
+        
         function callBack(){
             //el servidor responde con un estado que es un numero, un 200 si esta ok
             if (peticionHttp.readyState === 4) {
