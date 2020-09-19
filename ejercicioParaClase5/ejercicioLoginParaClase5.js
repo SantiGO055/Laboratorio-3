@@ -2,11 +2,13 @@ window.addEventListener("load",validar);
 var cont = 0;
 
 function validar(){
+    
     var user = document.getElementById("user");
     var pass = document.getElementById("pass");
-    var boton = document.getElementById("boton");
+    var enviar = document.getElementById("botonEnviar");
     var mostrarDiv = document.getElementById("botonMostrarDiv");
     var esconderDiv = document.getElementById("btnEsconder");
+    var limpiar = document.getElementById("botonLimpiar");
     
 
     // var tabla = document.getElementById("tabla"),rIndex,cIndex;
@@ -16,13 +18,20 @@ function validar(){
     mostrarDiv.addEventListener("click",accionMostrarDiv);
     esconderDiv.addEventListener("click",cerrarDiv);
 
-    user.addEventListener("blur",validarUser);
-    pass.addEventListener("blur",validarPass);
-    boton.addEventListener("click",validarBoton);
+    user.addEventListener("blur",validarCampos);
+    pass.addEventListener("blur",validarCampos);
 
+    enviar.addEventListener("click",validarBoton);
+    limpiar.addEventListener("click",limpiarCampos);
     
     
     
+}
+
+
+function funcLimpiar(){
+
+    //TODO hacer funcion para limpiar campos
 }
 
 function accionMostrarDiv(){
@@ -32,29 +41,20 @@ function accionMostrarDiv(){
 function cerrarDiv(){
     document.getElementById("div").hidden = true; 
 }
-function validarUser(){
-    
+
+function validarCampos(){
     if (this.value === "") {
-        document.getElementById("user").className = document.getElementById("user").className = " inputError";
+        this.className = " inputError";
+        //document.getElementById("user").className = document.getElementById("user").className = " inputError";
         return 0;
     }
     else{
-        document.getElementById("user").className = document.getElementById("user").className.replace(" inputError", "inputSinError");
+        this.className = this.className.replace(" inputError", "inputSinError");
+        //document.getElementById("user").className = document.getElementById("user").className.replace(" inputError", "inputSinError");
         return 1;
     }
 }
 
-function validarPass(){
-
-    if (this.value === "") {
-        document.getElementById("pass").className = document.getElementById("pass").className = " inputError";
-        return 0;
-    }
-    else{
-        document.getElementById("pass").className = document.getElementById("pass").className.replace(" inputError", "inputSinError");
-        return 1;
-    }
-}
 
 function validarBoton(){
     if (user.value === "" || pass.value === "") {
@@ -62,6 +62,18 @@ function validarBoton(){
     }
     else{
         /**enviar peticion al servidor */
+        var path = "http://localhost:3000/loginUsuario?usr="+user.value+"&pass="+pass.value;
+        var devolvio = ajax("GET",path);
+        console.log(devolvio);
         }
+}
+function limpiarCampos(){
 
-    }
+    document.getElementById("user").value = "";
+    document.getElementById("pass").value = "";
+    
+    document.getElementById("user").className = document.getElementById("user").className = " inputError";
+    document.getElementById("pass").className = document.getElementById("pass").className = " inputError";
+
+    
+}

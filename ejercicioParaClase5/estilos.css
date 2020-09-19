@@ -1,6 +1,6 @@
 
 .div{
-    background-color: rgb(199, 199, 199);
+    background-color: rgb(59, 147, 230);
     border: none;
     border-radius: 5px;
     text-align: left;
@@ -9,10 +9,20 @@
     height: 50%;
     box-shadow: 10px 10px 5px 0px lightslategrey;
     animation-name: abrir;
-    animation-duration: 1s;
+    animation-duration: 3s;
     position: relative;
+    right:-60%;
+    box-sizing: border-box;
+    text-align: center;
     
-    right:-25%;
+}
+.contenedor{
+    box-sizing: border-box;
+    text-align: center;
+    /* height: 15%; alto */
+    position: relative;
+    right: 25%
+
 }
 
 @keyframes abrir{
@@ -31,6 +41,10 @@
     border: none;
     padding: 3% 2%;
     margin: 8px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 input[type=text]{
     padding: 5% 4% 3% 2%;
@@ -39,17 +53,22 @@ input[type=text]{
     border-radius: 3px;
     box-sizing: border-box; /*Todo lo que hace el border-box es cuando crece segun el padding y tamaño lo hace crecer hacia adentro*/
 }
-.boton{
-    background-color: rgba(0, 128, 0, 0.733);
+.botonEstilo input[type=button]{
+    background-color: rgba(4, 8, 228, 0.733);
     color: white;
-    border-radius: 3px;
-    padding: 8px 30% 8px 5%; /* distancia entre margenes de boton y contenido */
-    margin: 8px 5px 8px 0px;/* distancia del elemento completo con los otros elementos */
-    box-shadow: 10px 5px 6px 0px lightgreen;
+    padding: 5% 30% 8% 5%; /*distancia entre margenes de boton y contenido*/
+    margin: 5% 5% 8% 0%; /*distancia del elemento completo con los otros elementos */
     
+
     height: 15%; /* alto */
+    width: 100%;
+    box-sizing: border-box;
     position: relative;
     
+    
+}
+.botonEstilo input[type=button]:hover{
+    background-color: rgb(78, 109, 248);
 }
 
 .botonMostrarDiv{
@@ -68,6 +87,8 @@ input[type=button]{
     font-size: 100%;
     cursor: pointer;
     text-align: center;
+    border-radius: 1px;
+    border-color: rgb(0, 0, 0);
 }
 
 .esconderDiv{
@@ -84,10 +105,12 @@ input[type=button]{
 @keyframes cerrar{
     from{
         opacity: 1;
+        height: 25%;
         
     }
     to{
         opacity: 0;
+        height: 0%;
     }
 }
 .btnEsconder{
@@ -126,10 +149,24 @@ tr:nth-child(even){
     background-color:  rgb(128, 9, 9);
 }
 .inputSinError{
-    border: none;
+    border: 2px solid #000;
+    line-height: 5%;
+    
 }
 .inputError{
+
     border:2px solid red;
+    transition: 0.2s ease-out;
+
+}
+.inputError::before{
+    position: absolute;
+    content: '';
+    top: -2px;
+    left: -2px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
 }
 
 
