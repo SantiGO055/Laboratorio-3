@@ -1,6 +1,15 @@
 window.addEventListener("load",validar);
 var cont = 0;
 
+
+class logueo{
+    constructor(nombre,apellido){
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
+}
+
 function validar(){
     var nombre = document.getElementById("nombre");
     var apellido = document.getElementById("apellido");
@@ -63,12 +72,13 @@ function validarBoton(){
         alert("Ingrese nombre y apellido");
     }
     else{
-        tcuerpo.innerHTML += "<tr><td>"+nombre.value+"</td><td>"+apellido.value+"</td><td><a href='#' >Eliminar</a></td></tr>";
+        tcuerpo.innerHTML += "<tr><td>"+nombre.value+"</td><td>"+apellido.value+"</td><td><a href='#' onclick='eliminarCelda(this)'>Eliminar</a></td></tr>";
         console.log(cont);
         }
 
     }
-function eliminandoCelda(){
-
+function eliminarCelda(celda){
+    var d = celda.parentNode.parentNode.rowIndex;
+    document.getElementById('tabla').deleteRow(d);
 
 }

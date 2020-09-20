@@ -28,7 +28,7 @@
             <input name="apellido" class="inputSinError inputError" id="apellido" type="text" tabindex="2" placeholder="Tu apellido..." />
         
             <br>
-            <!-- el onclick cambiarlo para desde el codigo de javascript usar eventos -->
+            
             <input name="guardar" class="boton" id="boton" type="button" tabindex="3" value="Guardar"/>
         </div>
         
@@ -53,12 +53,12 @@
             <tr>
                 <td>Pepito</td>
                 <td>Pruebas</td>
-                <td><a href="#" id="eliminarCelda" >Eliminar</a></td>
+                <td><a href="#" id="eliminarCelda" onclick="eliminarCelda(this)">Eliminar</a></td>
             </tr>
             <tr>
                 <td>dsa</td>
                 <td>a</td>
-                <td><a href="#" id="eliminarCelda">Eliminar</a></td>
+                <td><a href="#" id="eliminarCelda" value="Eliminar" onclick="eliminarCelda(this)">Eliminar</a></td>
             </tr>
             
 

@@ -19,5 +19,3 @@ function ajax(metodo,ruta){
         return false;
     }
 }
-
-//TODO terminar funcion para ajax
