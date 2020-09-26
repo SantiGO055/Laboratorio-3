@@ -62,6 +62,7 @@ function validarBoton(){
         alert("Ingrese usuario y contraseña");
     }
     else{
+        
         /**enviar peticion al servidor */
         var path = "http://localhost:3000/loginUsuario?usr="+user.value+"&pass="+pass.value;
         var devolvio = ajax("GET",path);
@@ -77,4 +78,36 @@ function limpiarCampos(){
     document.getElementById("pass").className = document.getElementById("pass").className = " inputError";
 
     
+}
+
+/** acer esto desde otro archivo */
+var peticionHttp = new XMLHttpRequest();
+
+function ejecutarPost(){
+    var usr = $("user");
+    var pass = $("pass");
+    peticionHttp.onreadystatechange = respuestaPost;
+    peticionHttp.open("POST","http://localhost:3000/loginUsuario");
+
+    peticionHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    // por ejemplo puedo pasar el token peticionHttp.setRequestHeader("token","a5s4d6a4s6d87a489dasd");
+    peticionHttp.send("usr="+usr+"&pass="+pass);
+
+}
+function $(id){
+    return document.getElementById(id).value;
+}
+function respuestaPost(){
+    if(peticionHttp.readyState == 4){
+        if (peticionHttp.status == 200) {
+            /**cuando tengo respuesta de servidor lo casteo a obj json */
+            var respuesta  = peticionHttp.responseText;
+
+            alert(respuesta);
+        }
+        else{
+            alert("error");
+            
+        }
+    }
 }

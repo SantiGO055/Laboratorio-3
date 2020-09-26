@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi formulario</title>
+    <link rel="stylesheet" href="./estilosEjercicioClase2.css"></link>
+    <script type="text/javascript" src="./ejercicioClase6.js"></script>
+    <script type="text/javascript" src="../ArchivosParaParcial/ajax.js"></script>
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <input name="esconderDiv" class="botonMostrarDiv" id="botonMostrarDiv" type="button" tabindex="3" value="Mostrar DIV"/>
+    <div id="div" class="div"  hidden>
+    <!-- el for lo uso para hacerle click al texto label y que lleve al campo user que en este caso busca el id -->
+        <div class="campos" id="campos">
+            <div class="esconderDiv" name="esconderDiv">
+                <input type="button" value="X" class="btnEsconder" id="btnEsconder">
+            </div>
+            
+            <label for="nombre">Nombre:</label>
+            <br> 
+            <input name="nombre" class="inputSinError inputError" id="nombre" type="text" tabindex="1"placeholder="Tu nombre..." />
+            <br>
+            <label for="apellido">Apellido:</label>
+            <br>
+            <input name="apellido" class="inputSinError inputError" id="apellido" type="text" tabindex="2" placeholder="Tu apellido..." />
+            <br>
+            <label for="fecha">Fecha:</label>
+            <br> 
+            <input name="fecha" class="inputSinError inputError" id="fecha" type="text" tabindex="1"placeholder="Fecha..." />
+            <br>
+            <label for="telefono">Telefono:</label>
+            <br>
+            <input name="telefono" class="inputSinError inputError" id="telefono" type="text" tabindex="2" placeholder="Tu telefono..." />
+            <br>
+            
+            <input name="guardar" class="boton" id="boton" type="button" tabindex="3" value="Guardar"/>
+        </div>
+        
+    </div>
+
+    <div id="listaPersonas">
+    <h3>Lista de personas</h3>
+    
+    <br>
+    <br>
+    <table class="tabla" id="tabla">
+        <thead>
+            <tr> 
+                <!-- columnas: -->
+                <th>Nombre</th> 
+                <th>Apellido</th>
+                <th>Fecha</th>
+                <th>Telefono</th>
+            </tr>
+
+        </thead>
+        <tbody id="tcuerpo">
+            
+            
+
+        </tbody>
+        <tfoot>
+
+
+        </tfoot>
+
+    </table>
+</div>
+
+
+</body>
+</html>

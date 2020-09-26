@@ -82,3 +82,6 @@ function eliminarCelda(celda){
     document.getElementById('tabla').deleteRow(d);
 
 }
+function $(id){
+    return document.getElementById(id).value;
+}
