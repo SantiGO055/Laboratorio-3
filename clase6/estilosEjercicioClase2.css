@@ -1,18 +1,18 @@
 
 .div{
-    background-color: rgb(199, 199, 199);
+    background-color: rgb(212, 192, 138);
     border: none;
     border-radius: 5px;
     text-align: left;
-    /*padding: 1px 50% 1px 0px;*/
-    width: 25%;
+    /*padding: 1px 10% 1px 0px;*/
+    width: 50%;
     height: 50%;
-    box-shadow: 10px 10px 5px 0px lightslategrey;
+    box-shadow: 5px 5px 5px 0px lightslategrey;
     animation-name: abrir;
-    animation-duration: 1s;
+    animation-duration: 1.2s;
     position: relative;
     
-    right:-25%;
+    right:-20%;
 }
 
 @keyframes abrir{
@@ -23,21 +23,47 @@
     }
     to{
         opacity: 1;
-        width: 25%;
+        width: 50%;
     }
+}
+/* body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+} */
+
+h3{
+    position: relative;
+    right: -38%;
 }
 .campos{
     border-radius: 3px;
     border: none;
-    padding: 3% 2%;
-    margin: 8px 5px;
+    padding: 3% 30%;
+    margin: 5% 5% 5% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url('../ArchivosParaParcial/DoogieDoodle.svg');
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: bottom;
+    background-position-x: right;
+    box-sizing: content-box;
+
+}
+input{
+    box-sizing: content-box;
 }
 input[type=text]{
     padding: 5% 4% 3% 2%;
-    margin: 8px 5px 8px 0px;
-    text-align: left;
+    margin: 5% 5% 5% 0px;
+    text-align: center;
     border-radius: 3px;
-    box-sizing: border-box; /*Todo lo que hace el border-box es cuando crece segun el padding y tamaño lo hace crecer hacia adentro*/
+    /*box-sizing: border-box; /*Todo lo que hace el border-box es cuando crece segun el padding y tamaño lo hace crecer hacia adentro*/
+    
 }
 .boton{
     background-color: rgba(0, 128, 0, 0.733);
@@ -45,7 +71,7 @@ input[type=text]{
     border-radius: 3px;
     padding: 8px 30% 8px 5%; /* distancia entre margenes de boton y contenido */
     margin: 8px 5px 8px 0px;/* distancia del elemento completo con los otros elementos */
-    box-shadow: 10px 5px 6px 0px lightgreen;
+    box-shadow: 5px 5px 6px 0px rgb(47, 49, 47);
     
     height: 15%; /* alto */
     position: relative;
@@ -68,6 +94,7 @@ input[type=button]{
     font-size: 100%;
     cursor: pointer;
     text-align: center;
+    
 }
 
 .esconderDiv{
@@ -97,10 +124,12 @@ input[type=button]{
 #botonMostrarDiv{
     right:-25%;
 }
-
+.listaPersonas{
+    position: relative;
+}
 
 .tabla{
-    padding: 0px 30% 8px 5%;
+    padding: 0px 20% 8px 5%;
     width: 100%;
 }
 th,td{

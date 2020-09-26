@@ -13,64 +13,60 @@
 </head>
 <body>
     
-    <input name="esconderDiv" class="botonMostrarDiv" id="botonMostrarDiv" type="button" tabindex="3" value="Mostrar DIV"/>
+    <input name="esconderDiv" class="botonMostrarDiv" id="botonMostrarDiv" type="button" tabindex="7" value="Mostrar DIV"/>
     <div id="div" class="div"  hidden>
     <!-- el for lo uso para hacerle click al texto label y que lleve al campo user que en este caso busca el id -->
-        <div class="campos" id="campos">
+        <div class="campos" id="campos" >
             <div class="esconderDiv" name="esconderDiv">
-                <input type="button" value="X" class="btnEsconder" id="btnEsconder">
+                <input type="button" value="X" class="btnEsconder" id="btnEsconder" tabindex="6">
             </div>
             
             <label for="nombre">Nombre:</label>
-            <br> 
             <input name="nombre" class="inputSinError inputError" id="nombre" type="text" tabindex="1"placeholder="Tu nombre..." />
-            <br>
-            <label for="apellido">Apellido:</label>
-            <br>
-            <input name="apellido" class="inputSinError inputError" id="apellido" type="text" tabindex="2" placeholder="Tu apellido..." />
-            <br>
-            <label for="fecha">Fecha:</label>
-            <br> 
-            <input name="fecha" class="inputSinError inputError" id="fecha" type="text" tabindex="1"placeholder="Fecha..." />
-            <br>
-            <label for="telefono">Telefono:</label>
-            <br>
-            <input name="telefono" class="inputSinError inputError" id="telefono" type="text" tabindex="2" placeholder="Tu telefono..." />
-            <br>
             
-            <input name="guardar" class="boton" id="boton" type="button" tabindex="3" value="Guardar"/>
+            <label for="apellido">Apellido:</label>
+            <input name="apellido" class="inputSinError inputError" id="apellido" type="text" tabindex="2" placeholder="Tu apellido..." />
+            
+            <label for="fecha">Fecha:</label>
+            <input name="fecha" class="inputSinError inputError" id="fecha" type="text" tabindex="3"placeholder="Fecha..." />
+            
+            <label for="telefono">Telefono:</label>
+            <input name="telefono" class="inputSinError inputError" id="telefono" type="text" tabindex="4" placeholder="Tu telefono..." />
+            
+            
+            <input name="guardar" class="boton" id="boton" type="button" tabindex="5" value="Guardar"/>
         </div>
         
     </div>
 
-    <div id="listaPersonas">
-    <h3>Lista de personas</h3>
-    
-    <br>
-    <br>
-    <table class="tabla" id="tabla">
-        <thead>
-            <tr> 
-                <!-- columnas: -->
-                <th>Nombre</th> 
-                <th>Apellido</th>
-                <th>Fecha</th>
-                <th>Telefono</th>
-            </tr>
+    <div id="listaPersonas" class="listaPersonas">
+        <h3>Lista de personas</h3>
+        
+        <br>
+        <br>
+        <table class="tabla" id="tabla">
+            <thead>
+                <tr> 
+                    <!-- columnas: -->
+                    <th>Nombre</th> 
+                    <th>Apellido</th>
+                    <th>Fecha</th>
+                    <th>Telefono</th>
+                </tr>
 
-        </thead>
-        <tbody id="tcuerpo">
-            
-            
+            </thead>
+            <tbody id="tcuerpo">
+                
+                
 
-        </tbody>
-        <tfoot>
+            </tbody>
+            <tfoot>
 
 
-        </tfoot>
+            </tfoot>
 
-    </table>
-</div>
+        </table>
+    </div>
 
 
 </body>
