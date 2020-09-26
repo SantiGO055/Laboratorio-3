@@ -110,20 +110,20 @@ function eliminarCelda(celda){
 
 
 function leerPersonaGet(){
-    peticionHttp.open("GET","http://localhost:3000/personas");
+    //peticionHttp.open("GET","http://localhost:3000/personas");
 
-    peticionHttp.onreadystatechange = respuestaGet;
-    peticionHttp.send();
+    ajax("GET","http://localhost:3000/personas",respuestaGet);
+    // peticionHttp.onreadystatechange = respuestaGet;
+    // peticionHttp.send();
 }
 
 function respuestaGet(){
     //el servidor responde con un estado que es un numero, un 200 si esta ok
     if (peticionHttp.readyState === XMLHttpRequest.DONE && peticionHttp.status === 200) {
-        // console.log(peticionHttp.responseText);
+        
         var arrayJson = JSON.parse(peticionHttp.responseText);
         for (let i = 0; i < arrayJson.length; i++) {
-
-            //console.log(arrayJson[i].apellido);
+            
 
             tcuerpo.innerHTML += "<tr><td>"+arrayJson[i].nombre+"</td><td>"+arrayJson[i].apellido+"</td><td>"+arrayJson[i].fecha+"</td><td>"+arrayJson[i].telefono+"</td></tr>";
 
@@ -137,17 +137,21 @@ function ejecutarPost(){
     var apellido = $("apellido");
     var fecha = $("fecha");
     var telefono = $("telefono");
-    peticionHttp.onreadystatechange = respuestaPost;
-    peticionHttp.open("POST","http://localhost:3000/nuevaPersona");
+    var sendPost = "nombre="+nombre+"&apellido="+apellido+"&fecha="+fecha+"&telefono="+telefono;
+    ajax("POST","http://localhost:3000/nuevaPersona",respuestaPost,sendPost);
+
+    //#region Implemento lo siguiente en metodo ajax
+    // peticionHttp.onreadystatechange = respuestaPost;
+    // peticionHttp.open("POST","http://localhost:3000/nuevaPersona");
     
     /**debo definir como le paso la info por post */
 
     // por ejemplo puedo pasar el token peticionHttp.setRequestHeader("token","a5s4d6a4s6d87a489dasd");
-    peticionHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    peticionHttp.send("nombre="+nombre+"&apellido="+apellido+"&fecha="+fecha+"&telefono="+telefono);
+    // peticionHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    // peticionHttp.send("nombre="+nombre+"&apellido="+apellido+"&fecha="+fecha+"&telefono="+telefono);
     /**siendo post puedo pasarlo como  peticionHttp.setRequestHeader("Content-type","application/json");*/
     /**peticionHttp.send("nombre:"+nombre+",apellido:"+apellido+",fecha:"+fecha+",telefono:"+telefono); */
-
+    //#endregion Implemento lo siguiente en metodo ajax
 }
 
 function respuestaPost(){
