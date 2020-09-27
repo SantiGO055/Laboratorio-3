@@ -110,11 +110,9 @@ function eliminarCelda(celda){
 
 
 function leerPersonaGet(){
-    //peticionHttp.open("GET","http://localhost:3000/personas");
+    
 
     ajax("GET","http://localhost:3000/personas",respuestaGet);
-    // peticionHttp.onreadystatechange = respuestaGet;
-    // peticionHttp.send();
 }
 
 function respuestaGet(){
