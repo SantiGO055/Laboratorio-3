@@ -111,7 +111,6 @@ function eliminarCelda(celda){
 
 function leerPersonaGet(){
     
-
     ajax("GET","http://localhost:3000/personas",respuestaGet);
 }
 
