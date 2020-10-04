@@ -14,7 +14,6 @@ var personas=require('./MOCK_DATA.json');
 
 
 app.get("/personas",function(req,res){
-    
     res.send(personas);
 });
 

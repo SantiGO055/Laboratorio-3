@@ -1,0 +1,2 @@
+Para agregarle objeto a un padre debo hacer body.appendChild y no puedo setearle un padre a un hijo
+getelementbytagname("p") devuelve una lista, con un foreach se puede agregar un atributo inventado
