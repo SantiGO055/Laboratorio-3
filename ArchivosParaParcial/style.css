@@ -1,0 +1,169 @@
+
+.div{
+    background-color: rgb(212, 192, 138);
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    /*padding: 1px 10% 1px 0px;*/
+    width: 50%;
+    height: 50%;
+    box-shadow: 5px 5px 5px 0px lightslategrey;
+    animation-name: abrir;
+    animation-duration: 1.2s;
+    position: relative;
+    
+    right:-20%;
+}
+
+@keyframes abrir{
+    from{
+        opacity: 0;
+        width: 0%
+        
+    }
+    to{
+        opacity: 1;
+        width: 50%;
+    }
+}
+/* body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+} */
+
+h3{
+    position: relative;
+    right: -38%;
+}
+.campos{
+    border-radius: 3px;
+    border: none;
+    padding: 3% 30%;
+    margin: 5% 5% 5% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url('../ArchivosParaParcial/DoogieDoodle.svg');
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: bottom;
+    background-position-x: right;
+    box-sizing: content-box;
+
+}
+
+input{
+    box-sizing: content-box;
+}
+input[type=text]{
+    padding: 5% 4% 3% 2%;
+    margin: 5% 5% 5% 0px;
+    text-align: center;
+    border-radius: 3px;
+    /*box-sizing: border-box; /*Todo lo que hace el border-box es cuando crece segun el padding y tamaño lo hace crecer hacia adentro*/
+    
+}
+.boton{
+    background-color: rgba(0, 128, 0, 0.733);
+    color: white;
+    border-radius: 3px;
+    padding: 8px 30% 8px 5%; /* distancia entre margenes de boton y contenido */
+    margin: 8px 5px 8px 0px;/* distancia del elemento completo con los otros elementos */
+    box-shadow: 5px 5px 6px 0px rgb(47, 49, 47);
+    
+    height: 15%; /* alto */
+    position: relative;
+    
+}
+
+.botonMostrarDiv{
+    background-color: rgba(0, 128, 0, 0.733);
+    color: white;
+    border-radius: 3px;
+    padding: 8px 15%; /* distancia entre margenes de boton y contenido */
+    margin: 8px 5px 8px 0px; /*distancia del elemento completo con los otros elementos*/
+    
+    text-align: center;
+    height: 15%; /* alto */
+    position: relative;
+    
+}
+input[type=button]{
+    font-size: 100%;
+    cursor: pointer;
+    text-align: center;
+    
+}
+
+.esconderDiv{
+    padding: 1px;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    text-decoration: lightgreen;
+    position: absolute;
+    bottom:90%;
+    right:5%;
+    animation-name: cerrar;
+}
+@keyframes cerrar{
+    from{
+        opacity: 1;
+        
+    }
+    to{
+        opacity: 0;
+    }
+}
+.btnEsconder{
+    background-color: red;
+    border-radius: 6px;
+}
+#botonMostrarDiv{
+    right:-25%;
+}
+.listaPersonas{
+    position: relative;
+}
+
+.tabla{
+    padding: 0px 20% 8px 5%;
+    width: 100%;
+}
+th,td{
+    text-align: left;
+    padding: 8px;
+}
+th{
+    background-color: rgb(11, 138, 212);
+    color: white;
+}
+/*para ponerle un color de fondo a uno si y otro no*/
+tr:nth-child(even){
+    background-color: rgb(187, 190, 194);
+}
+
+.boton:hover{
+    background-color:  rgb(14, 71, 14);
+}
+.botonMostrarDiv:hover{
+    background-color: rgb(14, 71, 14);
+}
+.btnEsconder:hover{
+    background-color:  rgb(128, 9, 9);
+}
+.inputSinError{
+    border: none;
+}
+.inputError{
+    border:2px solid red;
+}
+
+
+html{
+    font-family: 'Roboto', sans-serif;
+}
+
