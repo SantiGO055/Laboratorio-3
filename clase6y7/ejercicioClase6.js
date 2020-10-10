@@ -37,7 +37,7 @@ function validar(){
 }
 
 function accionMostrarDiv(){
-    document.getElementById("div").hidden = false;     
+    document.getElementById("div").hidden = false;
 
 }
 function cerrarDiv(){

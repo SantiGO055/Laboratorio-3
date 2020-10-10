@@ -1,0 +1,4 @@
+levantar evento doble click sobre el tr y levantar un div con todos los datos de la persona
+en metodo post si existe el id edita la persona sino devuelve erorr
+la fecha debe ser menor a hoy
+sexo seleccionado
