@@ -1,5 +1,4 @@
-/**Hacer funcion para que reciba que metodo quiero ejecutar y que ruta
-de 4 parametros, string metodo, string ruta, function callback */
+/**Funcion que recibe el metodo a ejecutar, la ruta, la funcion callback */
 var peticionHttp = new XMLHttpRequest();
 /**agregar como parametro el callback que recibe una funcion */
 function ajax(metodo,ruta, callback,send = ""){

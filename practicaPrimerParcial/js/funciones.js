@@ -10,6 +10,8 @@ window.addEventListener("load",validar);
 // }
 var peticionHttp = new XMLHttpRequest();
 
+var personaAux = [];
+
 function validar(){
     
     var nombre = document.getElementById("nombre");
@@ -76,11 +78,11 @@ function validarFecha(){
     fechaHoy =f.getFullYear()+ "-" + (f.getMonth() +1)+ "-" + + f.getDate();
     // fechaHoy = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
     var fechaAModif = $("fecha");
-    console.log(fechaAModif);
+    // console.log(fechaAModif);
     if (!fechaAModif) {
         document.getElementById("fecha").className = document.getElementById("fecha").className = " inputError";
     }
-    console.log(fechaHoy);
+    // console.log(fechaHoy);
     if (fechaHoy >= fechaAModif) {
         return retorno;
     }
@@ -125,8 +127,11 @@ function leerPersonaGet(){
 function agregarDatos(id,nombre,apellido,fecha,sexo){
 
     var row = document.createElement("tr");
+
+    row.addEventListener("dblclick",modificarDatos);
+
     var colNombre = document.createElement("td");
-    colNombre.addEventListener("dblclick",modificarCelda);
+    // colNombre.addEventListener("dblclick",modificarDatos);
     var textNombre = document.createTextNode(nombre);
     colNombre.appendChild(textNombre);
     colNombre.setAttribute("id",id);
@@ -134,21 +139,21 @@ function agregarDatos(id,nombre,apellido,fecha,sexo){
 
     var colApellido = document.createElement("td");
     var textApe = document.createTextNode(apellido);
-    colApellido.addEventListener("dblclick",modificarCelda);
+    // colApellido.addEventListener("dblclick",modificarDatos);
     colApellido.appendChild(textApe);
     colApellido.setAttribute("id",id);
     row.appendChild(colApellido);
 
     var colFecha = document.createElement("td");
     var textFecha = document.createTextNode(fecha);
-    colFecha.addEventListener("dblclick",modificarCelda);
+    // colFecha.addEventListener("dblclick",modificarDatos);
     colFecha.appendChild(textFecha);
     colFecha.setAttribute("id",id);
     row.appendChild(colFecha);
 
     var colSexo = document.createElement("td");
     var textSexo = document.createTextNode(sexo);
-    colSexo.addEventListener("dblclick",modificarCelda);
+    // colSexo.addEventListener("dblclick",modificarDatos);
     colSexo.appendChild(textSexo);
     colSexo.setAttribute("id",id);
     row.appendChild(colSexo);
@@ -178,12 +183,6 @@ function agregarDatos(id,nombre,apellido,fecha,sexo){
 }
 
 function respuestaGet(){
-    // var modificar = "<a href='#' id='modificarCelda' value='Modificar' onclick=modificarCelda(this)>Modificar</a>";
-    // var eliminar = "<a href='#' id='eliminarCelda' value='Eliminar' onclick=eliminarCelda(this)>Eliminar</a>";
-    /**creo la fila */
-    
-    
-
     
     //el servidor responde con un estado que es un numero, un 200 si esta ok
     if (peticionHttp.readyState === XMLHttpRequest.DONE && peticionHttp.status === 200) {
@@ -232,7 +231,8 @@ function obtenerValoresRadioButton(){
     }
 }
 
-function modificarCelda(event){
+
+function modificarDatos(event){
     // var index = celda.parentNode.parentNode.rowIndex;
 
     event.preventDefault();
@@ -244,7 +244,9 @@ function modificarCelda(event){
     var fecha = fila[2].textContent;
     var sexo = fila[3].textContent;
     var id = fila[3].getAttribute("id");
+    
 
+    // personaAux.push(nombre,apellido,fecha,sexo,id);
     MostrarDivModificar();
     imprimirRadioButton(sexo);
     // console.log("modificando" + nombre + " " + apellido  + " " + fecha + " " + sexo + id);
@@ -263,56 +265,95 @@ function modificarCelda(event){
         fechaAux = $("fecha");
         sexoAux = obtenerValoresRadioButton();
 
-        ejecutarPost(id,nombreAux,apellidoAux,fechaAux,sexoAux);
-
-        //TODO si el sv me devuelve ok recien ahi lo modifico o elimino de la lista
-        // fila[0].textContent = document.getElementById("nombre").value
-        // fila[1].textContent = document.getElementById("apellido").value
-        // fila[2].textContent = document.getElementById("fecha").value
-        // fila[3].textContent = tomarValoresRadioButton();
-        // fila[3].textContent = document.getElementById("sexo").value
-        validarFecha();
+        ejecutarPostModificar(id,nombreAux,apellidoAux,fechaAux,sexoAux)
+        
+        
+        
+        
+        // fila[0].textContent = nombreAux;
+        // fila[1].textContent = apellidoAux;
+        // fila[2].textContent = fechaAux;
+        // fila[3].textContent = sexoAux;
+        //validarFecha();
         
     });
     
 }
 
-function ejecutarPost(id,nombre,apellido,fecha,sexo){
-    // var nombre = $("nombre");
-    // var apellido = $("apellido");
-    // var fecha = $("fecha");
-    // var sexo = $("sexo");
+function modificarCelda(event){
+    event.preventDefault();
+    var fila = event.target.parentNode.childNodes;
     
+    console.log(fila);
+
+
+    fila[0].textContent = $("nombre");
+    fila[1].textContent = $("apellido");
+    fila[2].textContent = $("fecha");;
+    fila[3].textContent = obtenerValoresRadioButton();
     
-    //TODO chequear el post
-    //si se clickeo modificar
-    if(document.getElementById('botonModificar').clicked == true)
-    {
-        var sendPost = "id:"+id+",nombre:"+nombre+",apellido:"+apellido+",fecha:"+fecha+",sexo:"+sexo;
-        // var sendPost = "nombre="+nombre+"&apellido="+apellido+"&fecha="+fecha+"&telefono="+telefono;
-        ajax("POST","http://localhost:3000/editar",respuestaPost,sendPost);
-    }
+}
+function ejecutarPostModificar(id,nombre,apellido,fecha,sexo){
+    let objetoPersona = {"id" : id, "nombre" : nombre, "apellido" : apellido, "fecha" : fecha, "sexo" : sexo };
+                        
+    var stringJson = JSON.stringify(objetoPersona);
+    
+    var sendPost = stringJson;
+    
+    // var sendPost = "nombre="+nombre+"&apellido="+apellido+"&fecha="+fecha+"&telefono="+telefono;
+    ajax("POST","http://localhost:3000/editar",respuestaPostModificar,sendPost)
+
+    //modificarCelda();
+    document.getElementById("div").hidden = true;
     
     
 }
 
 
-function respuestaPost(){
+function respuestaPostModificar(){
+    
     if(peticionHttp.readyState == 4){
         if (peticionHttp.status == 200) {
             /**cuando tengo respuesta de servidor lo casteo a obj json */
             var respuesta  = peticionHttp.responseText;
             var respuestaArray = JSON.parse(respuesta);
-            if (respuestaArray.respuesta === 'ok') {
+            //console.log(respuestaArray);
+            if (respuestaArray.type != 'error') {
                 var nombreAux = $("nombre");
                 var apellidoAux = $("apellido");
                 var fechaAux = $("fecha");
-                var telefonoAux = $("telefono");
+                var sexoAux = obtenerValoresRadioButton();
+                
+                // console.log(e.target);
+                //TODO modificar celda
+
+                /**datos que responde el servidor */
+                console.log(respuestaArray.id);
+
+
+                /**tengo que modificar la celda que le hice doble click con los datos que me devolvio */
+                console.log(tcuerpo.length);
+                for (let index = 0; index < tcuerpo.length; index++) {
+                    const element = array[index];
+                    
+                }
+                
+                //TODO detengo el spinner
+                
+                // console.log(nombreAux);
+                // console.log(apellidoAux);
+                // console.log(fechaAux);
+                // console.log(sexoAux);
+
+                
+
                 /** como se que el servidor me responde ok, tomo los valores que ingrese de los campos y los agrego a la lista */
-                document.getElementById("div").hidden = true;
-                agregarDatos(nombreAux,apellidoAux,fechaAux,telefonoAux);
+                //modificarCelda(nombreAux,apellidoAux,fechaAux,sexoAux);
 
                 //tcuerpo.innerHTML += "<tr><td>"+nombreAux+"</td><td>"+apellidoAux+"</td><td>"+fechaAux+"</td><td>"+telefonoAux+"</td><td>"+"<a href='#' id='eliminarCelda' value='Eliminar' onclick=eliminarCelda(this)>Eliminar</a>"+"</td></tr>";
+            }
+            else{
+                //console.log(respuestaArray.type);
             }
 
         }
