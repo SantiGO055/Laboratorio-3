@@ -15,10 +15,13 @@
 <body>
     
     <!-- <input name="esconderDiv" class="botonMostrarDiv" id="botonMostrarDiv" type="button" tabindex="7" value="Mostrar DIV"/> -->
-<div class="contenedor">
+<div class="contenedor" id="contenedor">
+    <!-- <div id="notificacion" class="notificacion"></div> -->
+    <!-- <input id="btnOpen" type="button" value="+"/> -->
     <div id="loaderImage" class="loaderImage" hidden></div>
     <div id="div" class="div"  hidden>
-        <input type="button" value="X" class="btnEsconder" id="btnEsconder" tabindex="6">
+        <div class="divEsconder"><input type="button" value="X" class="btnEsconder" id="btnEsconder" tabindex="6"><span class="infoBtnEsconder">Haga click en la X o presione la tecla Esc</span>
+        </div>
         <!-- el for lo uso para hacerle click al texto label y que lleve al campo user que en este caso busca el id -->
         <div class="campos" id="campos" >
             

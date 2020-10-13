@@ -50,6 +50,59 @@ h3{
     position: relative;
     right: -38%;
 }
+#btnOpen{
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    padding: 3px;
+    width:3rem;
+    height: 3rem;
+    position: fixed;
+    right: 10%;
+    top: 0;
+    margin: 8px 0;
+}
+.notificacionSinError{
+    background:rgb(151, 241, 140);
+    border: 3px solid rgb(34, 75, 10);
+}
+.notificacionConError{
+    background:rgb(219, 67, 67);
+    border: 3px solid rgb(255, 0, 0);
+}
+
+.notificacion{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    
+    border-radius: 4px;
+    
+    text-align: center;
+    position: fixed;
+    
+    top: 93%;
+    width: 35%;
+    height: 5%;
+    z-index: 4;
+    left:20%;
+    opacity: .8;
+    animation-name: cerrar;
+    animation-duration: 5s;
+    opacity: 0;
+}
+@keyframes cerrar{
+    from{
+        opacity: 2;
+    }
+    to{
+        opacity: 0;
+        display: hidden;
+    }
+}
 .campos{
     /* border-radius: 3px;
     border: none; */
@@ -117,7 +170,6 @@ input[type=date]{
     
     height: 15%;
     position: relative;
-    
 }
 
 .botonMostrarDiv{
@@ -149,16 +201,28 @@ input[type=button]{
     position: absolute;
     bottom:90%;
     left:5%;
-    animation-name: cerrar;
+    
 }
-@keyframes cerrar{
-    from{
-        opacity: 1;
-        
-    }
-    to{
-        opacity: 0;
-    }
+.infoBtnEsconder{
+    position: absolute;
+    top: 2%;
+    left: 10%;
+    zoom: 1;
+    opacity: 0;
+    padding: 5px;
+    color: white;
+    background: black;
+    -moz-transition:all ease .8s; /*Transición*/
+    -webkit-transition:all ease .8s ;
+    transition:all ease .8s;
+}
+.divEsconder{
+    position: relative; 
+    margin: 10px auto;
+}
+.divEsconder:hover .infoBtnEsconder{
+    filter: alpha(opacity=80);
+    opacity: .8; /*Al hacer hover sobre la caja hacemos visible los datos*/
 }
 .btnEsconder{
     background-color: red;
@@ -183,13 +247,13 @@ input[type=button]{
 }
 @keyframes slidein {
     from {
-      margin-left:100%;
-      width:300%
+        margin-left:100%;
+        width:300%
     }
     
     to {
-     margin-left:0%;
-     width:100%;
+        margin-left:0%;
+        width:100%;
    }
 }
 th,td{

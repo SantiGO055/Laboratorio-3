@@ -16,7 +16,6 @@ function validar(){
     
     var nombre = document.getElementById("nombre");
     var apellido = document.getElementById("apellido");
-    // var sexo = document.getElementById("fecha");
     var fecha = document.getElementById("fecha");
     var botonModificar = document.getElementById("botonModificar");
     // var mostrarDiv = document.getElementById("botonMostrarDiv");
@@ -38,6 +37,11 @@ function validar(){
     //botonModificar.addEventListener("click",validarBoton);
 
     leerPersonaGet();
+    window.addEventListener("keyup",function(e){
+        if(e.keyCode==27) {
+            document.getElementById("div").hidden = true;
+        }
+    });
     
 }
 
@@ -285,7 +289,6 @@ function modificarDatos(event){
     
 
     botonModificar.addEventListener("click",function(){
-        
         nombreAux = $("nombre");
         apellidoAux = $("apellido");
         fechaAux = $("fecha");
@@ -294,8 +297,8 @@ function modificarDatos(event){
             ejecutarPostModificar(id,nombreAux,apellidoAux,fechaAux,sexoAux);
         }
     });
+
     botonEliminar.addEventListener("click",function(){
-        
         if (validarBoton()) {
             ejecutarPostEliminar(id);
         }
@@ -303,44 +306,65 @@ function modificarDatos(event){
     
 }
 
-
+/**modifico la celda TR del html, recibo los datos a modificar */
 function modificarCelda(id,nombre,apellido,fecha,sexo){
-
-
-    /**obtengo el id de la celda */
-
     var tcuerpo = document.getElementById("tcuerpo");
-    /**obtengo la lista de personas en el html */
+    /**obtengo la lista de personas del html */
     var listaPersonas = tcuerpo.parentNode.childNodes[3].childNodes;
+    
+    // console.log(tcuerpo.parentNode); /**todo el div tabla*/
+    
+    // console.log(tcuerpo.parentNode.childNodes); /**objeto de cada elemento de la tabla (thead, tbody)*/
+    
+    // console.log(tcuerpo.parentNode.childNodes[3]); /**el tbody donde estan todos los datos es el [3] del parent node*/
+    
+    // console.log(tcuerpo.parentNode.childNodes[3].childNodes); /**uso el childNodes para obtener cada tr de la lista para despues recorrerlo*/
+
+
     /**recorro la lista */
     for (let index = 1; index < listaPersonas.length; index++) {
-        /**obtengo el atributo id de ese tr */
-        // console.log(listaPersonas[index].getAttribute("id"));
-        /**si coincide con el que quiero modificar, seteo los datos */
+        
+        // console.log(listaPersonas[index].getAttribute("id")); /**obtengo el atributo id de ese tr */
+
+        /**si el id de la lista coincide con el que id que viene por parametro, seteo los datos */
         if(listaPersonas[index].getAttribute("id") === id){
             listaPersonas[index].childNodes[0].textContent = nombre;
             listaPersonas[index].childNodes[1].textContent = apellido;
             listaPersonas[index].childNodes[2].textContent = fecha;
             listaPersonas[index].childNodes[3].textContent = sexo;
+            return true;
         }
+    }
+}
 
+function notificacion(modifico,ServidorOk){
+    var div = document.createElement("div");
+    div.setAttribute("id","notificacion");
+    div.setAttribute("class","notificacion notificacionSinError");
+    div.setAttribute("hidden","true");
+    var cont = document.getElementById("contenedor");
+    var textoMensaje = "";
+    if(modifico && ServidorOk){
+        textoMensaje = document.createTextNode("Datos modificados correctamente");
+    }
+    else if(modifico && !ServidorOk){
+        textoMensaje = document.createTextNode("Error al modificar datos");
+        div.setAttribute("class","notificacion notificacionConError");
+    }
+    else if(!modifico && ServidorOk){
+        textoMensaje = document.createTextNode("Datos eliminados correctamente");
+    }
+    else if(!modifico && !ServidorOk){
+        textoMensaje = document.createTextNode("Error al eliminar datos");
+        div.setAttribute("class","notificacion notificacionConError");
     }
     
-    // event.preventDefault();
-    // var fila = event.target.parentNode.childNodes;
-    
-    
-
-
-    // fila[0].textContent = $("nombre");
-    // fila[1].textContent = $("apellido");
-    // fila[2].textContent = $("fecha");;
-    // fila[3].textContent = obtenerValoresRadioButton();
-    
+    div.appendChild(textoMensaje);
+    cont.appendChild(div);
 }
+
+/**Elimino la celda TR del html, recibo el id a eliminar */
 function eliminarCelda(id){
-    
-    
     var tabla = document.getElementById("tcuerpo");
     /**obtengo la lista de personas en el html */
     var listaPersonas = tabla.parentNode.childNodes[3].childNodes;
@@ -386,6 +410,8 @@ function ejecutarPostEliminar(id){
     var stringJson = JSON.stringify(objetoPersona);
     var sendPost = stringJson;
     // ajax("POST","http://localhost:3000/eliminar",respuestaPostEliminar,sendPost);
+    
+    /**implemento el callback de esta manera para poder pasarle el id */
     ajax("POST","http://localhost:3000/eliminar",function(){
         respuestaPostEliminar(id);
     },sendPost);
@@ -403,11 +429,15 @@ function respuestaPostEliminar(id){
             if (respuestaArray.type != 'error') {
 
                 document.getElementById("loaderImage").hidden = true;
-                console.log(id);
+                notificacion(false,true);
+                document.getElementById("notificacion").hidden = true;
+                
                 eliminarCelda(id);
             }
             else{
-                console.log(respuestaArray);
+                console.log(respuestaArray.type);
+                document.getElementById("loaderImage").hidden = true;
+                notificacion(false,false);
             }
 
         }
@@ -429,12 +459,15 @@ function respuestaPostModificar(){
             if (respuestaArray.type != 'error') {
 
                 document.getElementById("loaderImage").hidden = true;
+                notificacion(true,true);
                 
                 /**tengo que modificar la celda que le hice doble click con los datos que me devolvio */
                 modificarCelda(respuestaArray.id,respuestaArray.nombre,respuestaArray.apellido,respuestaArray.fecha,respuestaArray.sexo);
             }
             else{
-                //console.log(respuestaArray.type);
+                console.log(respuestaArray.type);
+                document.getElementById("loaderImage").hidden = true;
+                notificacion(true,false);
             }
 
         }
