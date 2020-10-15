@@ -1,0 +1,34 @@
+:root{scroll-behavior:smooth;}
+main {position: relative;}
+section {padding-bottom: 5rem;}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align:center;
+  padding: 3rem;
+}
+
+.scroll-top {
+  position: absolute;
+  top: 120vh;
+  bottom: 2rem;
+  right: 1rem;
+}
+
+.scroll-top__link {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 85vh;
+  text-decoration:none;
+  border-radius: .25rem;
+  background-color: blue;
+  padding:1rem;
+  color: white;
+  font-weight:700;
+  opacity:.5;
+}
+
+.scroll-top__link:hover {
+  opacity: initial;
+}

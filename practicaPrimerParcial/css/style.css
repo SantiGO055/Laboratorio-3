@@ -71,8 +71,8 @@ h3{
     border: 3px solid rgb(255, 0, 0);
 }
 
+/*Notificacion que sale luego del abm del form*/
 .notificacion{
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -289,4 +289,9 @@ tr:nth-child(even){
 html{
     font-family: 'Roboto', sans-serif;
 }
-
+.scroll-top {
+    position: absolute;
+    top: 120vh;
+    bottom: 2rem;
+    right: 1rem;
+}
