@@ -37,6 +37,7 @@ function validar(){
     //botonModificar.addEventListener("click",validarBoton);
 
     leerPersonaGet();
+
     window.addEventListener("keyup",function(e){
         if(e.keyCode==27) {
             document.getElementById("div").hidden = true;
@@ -159,6 +160,20 @@ function leerPersonaGet(){
     ajax("GET","http://localhost:3000/personas",respuestaGet);
 }
 
+function respuestaGet(){
+    
+    //el servidor responde con un estado que es un numero, un 200 si esta ok
+    if (peticionHttp.readyState === XMLHttpRequest.DONE && peticionHttp.status === 200) {
+        
+        var arrayJson = JSON.parse(peticionHttp.responseText);
+        for (let i = 0; i < arrayJson.length; i++) {
+            agregarDatos(arrayJson[i].id,arrayJson[i].nombre,arrayJson[i].apellido,arrayJson[i].fecha,arrayJson[i].sexo);
+        }
+        return arrayJson;
+    }
+    
+}
+
 function agregarDatos(id,nombre,apellido,fecha,sexo){
 
     var row = document.createElement("tr");
@@ -217,22 +232,6 @@ function agregarDatos(id,nombre,apellido,fecha,sexo){
 
     
 }
-
-function respuestaGet(){
-    
-    //el servidor responde con un estado que es un numero, un 200 si esta ok
-    if (peticionHttp.readyState === XMLHttpRequest.DONE && peticionHttp.status === 200) {
-        
-        var arrayJson = JSON.parse(peticionHttp.responseText);
-        for (let i = 0; i < arrayJson.length; i++) {
-            agregarDatos(arrayJson[i].id,arrayJson[i].nombre,arrayJson[i].apellido,arrayJson[i].fecha,arrayJson[i].sexo);
-        }
-        return arrayJson;
-    }
-    
-}
-
-
 
 function MostrarDivModificar(){
     document.getElementById("div").hidden = false;
