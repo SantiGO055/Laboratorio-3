@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promesas</title>
+</head>
+<body>
+    <script>
+        //esto puedo definirlo con funcion flecha
+        // function(){
+
+        // }
+
+        ()=>{}
+
+        function calcularEdad(fechaNac){
+            return new Promise((callbackOk,callbackError)=>{ //lo mismo que hacer function()
+                /**dentro tiene 2 callbacks*/
+            /**Nuestro codigo asyncrono */
+            if (true) {
+                fechaNac = "1996-10-23";
+                callbackOk(18);
+                
+            }
+            //si sale mal ejecuta callbackError
+            else{
+                callbackError("error");
+            }
+            });
+        }
+
+        // var promesa = new Promise(function(callbackOk,callbackError){
+        //     /**dentro tiene 2 callbacks*/
+        //     /**Nuestro codigo asyncrono */
+        //     if (true) {
+        //         callbackOk(18);
+                
+        //     }
+        //     //si sale mal ejecuta callbackError
+        //     else{
+        //         callbackError("error");
+        //     }
+        // });
+
+        // promesa.then(function(){
+        //     console.log("salio bien"); //cuando sale bien
+        // }).catch(function(){ //promesa.catch //cuando sale mal
+        //     console.log("salio mal");
+        // }); 
+        
+
+        //recien en el then se va a ejecutar lo que se definio dentro del new promise
+        calcularEdad(new Date()).then(function(edad){
+            alert("Tiene: ",edad);
+
+        });
+
+
+
+        /* con fetch nos permite hacer llamada tipo ajax, lo va a reemplazar */
+        //en angular o react se utiliza los observed
+        /* primer parametro va la ruta de la peticion al servidor */
+        // fetch("http://localhost:3000/materias").then(
+        //     /*la primer respuesta va a ser este callback*/
+        //     function(respuesta){
+        //         /*resultado de peticion get*/
+        //         console.log("Primer callback",console.log(respuesta.status));
+        //         if (respuesta.status == 200) {
+        //             return respuesta.text();
+        //         }
+        //         else{
+        //             throw "Error no llego a 200"; //despues lo vemos la clase que viene
+        //             //es para que se ejecute el catch de mas abajo
+        //             //si da error el throw fuerza a que se ejecute el catch de la promesa
+        //         }
+        //         // return respuesta.text; /* devuelve otra promesa */
+        //     }
+        //     /*voy al then para ver la respuesta positiva*/
+        // ).then(function(texto){
+        //         console.log(texto);
+        //     }
+        // ).catch(function(err){
+        //     alert(err);
+        // }
+        // );
+
+
+
+        </script>
+</body>
+</html>

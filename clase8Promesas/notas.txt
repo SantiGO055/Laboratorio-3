@@ -1,0 +1,5 @@
+En las promesas utilizamos 2 callbacks, uno si salio bien lo que pedimos que haga
+y otro si salio mal
+Lo responde asincronamente en otro momento, es parecido a lo que hacemos con ajax
+Una promesa es un objeto
+se crea a traves del new, vease index.html
