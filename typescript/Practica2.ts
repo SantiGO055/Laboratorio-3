@@ -19,7 +19,7 @@ function llamarBatman( llamar:any = false ){
 llamarBatman();
 
 // Rest?
-function unirheroes( ... personas:string[] ){
+function unirheroes( nombre: string ,... personas:string[] ){
   return personas.join(", ");
 }
 let supermann:string = unirheroes("Clark", "Joseph", "Kent");

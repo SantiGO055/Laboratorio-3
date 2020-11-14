@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo Parcial 2</title>
+    <script src="animal.js"></script>
+    <script src="perro.js"></script>
+    <script src="gato.js"></script>
+    <script src="pajaro.js"></script>
+    <script src="funciones.js"></script>
+    <link rel="stylesheet" href="css/style.css"></link>
+
+
+    
+</head>
+<body>
+    <!-- <input type="button" id="btnAgregarGato" value="Click"> -->
+    
+    <div id="div">
+        <div id="divCampos" class="divCampos" hidden>
+                <label for="nombre">Nombre:</label>
+                <input name="nombre" class="inputSinError" id="nombre" type="text" tabindex="1"placeholder="Nombre..." />
+                
+                <label for="apellido">Detalle:</label>
+                <input name="Detalle" class="inputSinError" id="detalle" type="text" tabindex="2" placeholder="Detalle..." />
+            
+                <div class="botones">
+                    <input name="guardar" class="botonEliminar" id="botonEliminar" type="button" tabindex="5" value="Eliminar"/>
+                    <input name="guardar" class="botonModificar" id="botonModificar" type="button" tabindex="5" value="Modificar"/>
+                </div>
+            </div>
+        </div>
+    
+        <select name="select" id="select">
+            <option value="" selected>Seleccione un animal</option> 
+            <option value="Perro" id="selectPerro">Perro</option> 
+            <option value="Gato" id="selectGato" >Gato</option>
+            <option value="Pajaro" id="selectPajaro">Pajaro</option>
+        </select>
+        <h2 id="titulo">Agregar animal</h2>
+        <input type="button" id="btnAgregar" class="btnAgregar" value="Agregar a la lista">
+
+        <label id="labelNombre" for="inputNombre">Nombre:</label>
+        <input type="text" id="inputNombre" name="inputNombre">
+
+        <label id="labelDetalle" for="inputDetalle">Detalle:</label>
+        <input type="text" id="inputDetalle" name="inputDetalle">
+
+        
+    </div>
+
+    <select name="selectFilter" id="selectFilter">
+        <option value="" selected>Seleccione un animal a filtrar</option> 
+        <option value="Perro" id="selectPerroFilter">Perro</option> 
+        <option value="Gato" id="selectGatoFilter" >Gato</option>
+        <option value="Pajaro" id="selectPajaroFilter">Pajaro</option>
+    </select>
+
+    <table class="tabla" id="tabla">
+        <thead>
+            <tr>
+                <!-- columnas: -->
+                <th>Nombre</th> 
+                <th>Detalle del animal</th>
+                <th>Tipo</th>
+
+            </tr>
+
+        </thead>
+        <tbody id="tcuerpo">
+            
+            
+
+        </tbody>
+        <tfoot>
+
+
+        </tfoot>
+
+    </table>
+    
+</body>
+</html>

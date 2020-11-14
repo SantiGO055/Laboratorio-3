@@ -1,0 +1,6 @@
+3 clases que implementen interfaz animal
+abm de estas interfaces
+
+agregamos enumerado
+Grilla con todos los animales con datos que tenga
+
