@@ -1,11 +1,19 @@
 var clase8;
 (function (clase8) {
     var id = 0;
+    var idPerro = 0;
+    var idGato = 0;
+    var idPajaro = 0;
     window.addEventListener("load", ejecutarBoton);
+    var listaMascotas = new Array();
     function ejecutarBoton() {
         // let mascota:Perro = new Perro(); //por que el constructor lo declare con ? que no es obligatorio el nombre
         var select = document.getElementById("select");
         select.addEventListener("change", prepararCampos);
+        var filter = document.getElementById("selectFilter");
+        filter.addEventListener("change", filterList);
+        // let filter = document.getElementById("selectFilter");
+        // filter.addEventListener("change",filterList);
         // botonAgregarGato.addEventListener("click",AgregarAnimal);
         // botonAgregarPajaro.addEventListener("click",AgregarAnimal);
     }
@@ -36,34 +44,34 @@ var clase8;
         // inputDetalle.setAttribute("id","raza");
     }
     clase8.prepararCampos = prepararCampos;
-    function agregarPerroALaLista(event) {
+    function agregarPerroALaLista() {
         var nombre = document.getElementById("inputNombre").value;
         var btnAgregar = document.getElementById("btnAgregar");
         // console.log(nombre);
         var raza = document.getElementById("inputDetalle").value;
-        console.log();
-        var mascotaPerro = new clase8.Perro(nombre, raza);
+        // console.log();
+        var mascotaPerro = new clase8.Perro(nombre, raza, idPerro++);
         btnAgregar.removeEventListener("click", agregarPerroALaLista);
         AgregarAnimal(mascotaPerro);
     }
     clase8.agregarPerroALaLista = agregarPerroALaLista;
-    function agregarGatoALaLista(event) {
+    function agregarGatoALaLista() {
         var btnAgregar = document.getElementById("btnAgregar");
         var nombre = document.getElementById("inputNombre").value;
         // console.log(nombre);
         var vidas = document.getElementById("inputDetalle").value;
-        var mascotaGato = new clase8.Gato(nombre, Number(vidas));
+        var mascotaGato = new clase8.Gato(nombre, Number(vidas), idGato++);
         btnAgregar.removeEventListener("click", agregarGatoALaLista);
         // console.log(mascotaGato);
         AgregarAnimal(mascotaGato);
     }
     clase8.agregarGatoALaLista = agregarGatoALaLista;
-    function agregarPajaroALaLista(event) {
+    function agregarPajaroALaLista() {
         var btnAgregar = document.getElementById("btnAgregar");
         var nombre = document.getElementById("inputNombre").value;
         // console.log(nombre);
         var tamaño = document.getElementById("inputDetalle").value;
-        var mascotaPajaro = new clase8.Pajaro(nombre, tamaño);
+        var mascotaPajaro = new clase8.Pajaro(nombre, tamaño, idPajaro++);
         btnAgregar.removeEventListener("click", agregarPajaroALaLista);
         AgregarAnimal(mascotaPajaro);
     }
@@ -72,7 +80,7 @@ var clase8;
         // event.preventDefault();
         // console.log(event.target.parentNode);
         // let mascota2:Perro = new Perro("Pepe");
-        var listaMascotas = new Array(); //TODO no me deja hacer item.raza por que no lo encuentra en animal, tengo que castear
+        //TODO no me deja hacer item.raza por que no lo encuentra en animal, tengo que castear
         listaMascotas.push(mascota);
         // listaMascotas.push(mascota);
         // console.log(listaMascotas);
@@ -83,7 +91,7 @@ var clase8;
         //         listaMascotas.splice(index,1);
         // }
         if (mascota.tipo == clase8.tipoAnimal.Perro) {
-            console.log(mascota);
+            // console.log(mascota);
             //agregar a la lista
             agregarTabla();
         }
@@ -92,7 +100,7 @@ var clase8;
         }
         else if (mascota.tipo == clase8.tipoAnimal.Pajaro) {
             agregarTabla();
-            console.log(mascota);
+            // console.log(mascota);
         }
         // listaMascotas.push(mascota1,mascota2);
         // console.log(mascota);
@@ -103,55 +111,92 @@ var clase8;
         // });
     }
     clase8.AgregarAnimal = AgregarAnimal;
-    function reduceList() {
-        var selectFilter = document.getElementById("select");
-        selectFilter.addEventListener("change", function (event) {
-            console.log(event.target);
-            // if(event.target.value === "Perro"){
-            //     labelDetalle.textContent = "Raza";
-            //     titulo.textContent = "Agregar perro";
-            //     botonAgregar.addEventListener("click",agregarPerroALaLista);
+    function filterList(event) {
+        event.preventDefault();
+        // console.log(listaMascotas);
+        if (listaMascotas != null) {
+            if (event.target.value === "Perro") {
+                var filtrado = listaMascotas.filter(function (item) {
+                    console.log(item.tipo == clase8.tipoAnimal.Perro);
+                    return item.tipo == clase8.tipoAnimal.Perro;
+                });
+                agregarTablaFiltrada(filtrado);
+            }
+            else if (event.target.value === "Gato") {
+            }
+            else {
+            }
+            // if(item.tipo === tipoAnimal.Perro){
+            //     var perroFiltrado = listaMascotas.filter((itemPerro)=>{
+            //         return num>3;
+            //     });
+            //     console.log("Metodo FILTER");
+            //     console.log(numsFiltrados);
+            //     console.log("");
             // }
-            // else if(event.target.value === "Gato"){
-            //     titulo.textContent = "Agregar gato";
-            //     labelDetalle.textContent = "Vidas";
-            //     botonAgregar.addEventListener("click",agregarGatoALaLista);
-            // }
-            // else{
-            //     titulo.textContent = "Agregar pajaro";
-            //     labelDetalle.textContent = "Tamaño";
-            //     botonAgregar.addEventListener("click",agregarPajaroALaLista);
-            // }
-        });
-        //map me devuelve una copioa de la lista con la operacion realizada
-        // var numsSqrt = nums.map((num)=>{
-        //     return num * num;
-        // });
-        // console.log("Metodo MAP");
-        // console.log(numsSqrt);
-        // console.log("");
-        // //filter me devuelve copia de elementos, los filtra
-        // //en este caso nums es el array original
-        // //la function 
-        // var numsFiltrados = nums.filter((num)=>{
-        //     return num>3;
-        // });
-        // console.log("Metodo FILTER");
-        // console.log(numsFiltrados);
-        // console.log("");
-        // //reduce
-        // //saca un producto de la lista original, un solo valor
-        // var sumatoria = nums.reduce((total,num)=>{
-        //     return total=total+num;
-        // },0);
-        // console.log("Metodo REDUCE");
-        // console.log(sumatoria);
-        // console.log("");
-        // nums.forEach((num)=>{
-        //     console.log(num);
-        // });
+            // let aux = <Perro>item;
+            // console.log(listaMascotas);
+        }
+        else {
+            // console.log(listaMascotas);
+        }
     }
-    clase8.reduceList = reduceList;
+    clase8.filterList = filterList;
+    function agregarTablaFiltrada(filtrado) {
+        var tcuerpoFiltrado = document.getElementById("tcuerpoFiltrado");
+        var row = document.createElement("tr");
+        var colNombre = document.createElement("td");
+        console.log(filtrado);
+        filtrado.forEach(function (item) {
+            if (item.tipo === clase8.tipoAnimal.Perro) {
+                var auxPerro = item;
+                console.log(item.nombre);
+                var textNombrePerro = document.createTextNode(auxPerro.nombre);
+                colNombre.appendChild(textNombrePerro);
+                row.appendChild(colNombre);
+                var colRaza = document.createElement("td");
+                var textRaza = document.createTextNode(auxPerro.raza);
+                colRaza.appendChild(textRaza);
+                row.appendChild(colRaza);
+                var colTipo = document.createElement("td");
+                var textTipo = document.createTextNode(auxPerro.tipo);
+                colTipo.appendChild(textTipo);
+                row.appendChild(colTipo);
+                tcuerpoFiltrado.appendChild(row);
+            }
+            console.log(item);
+        });
+        // var tcuerpo = (<HTMLInputElement>document.getElementById("tcuerpo"));
+        // var row = document.createElement("tr");
+        // // row.addEventListener("dblclick",modificarDatos);
+        // // row.setAttribute("id","" + id++);
+        // var colNombre = document.createElement("td");
+        // // colNombre.addEventListener("dblclick",modificarDatos);
+        // var textNombre = document.createTextNode(nombre);
+        // colNombre.appendChild(textNombre);
+        // // colNombre.setAttribute("id",id);
+        // row.appendChild(colNombre);
+        // var colRaza = document.createElement("td");
+        // var textRaza = document.createTextNode(detalle);
+        // // colApellido.addEventListener("dblclick",modificarDatos);
+        // colRaza.appendChild(textRaza);
+        // // colApellido.setAttribute("id",id);
+        // row.appendChild(colRaza);
+        // var colTipo = document.createElement("td");
+        // var textTipo = document.createTextNode(tipo);
+        // // colFecha.addEventListener("dblclick",modificarDatos);
+        // colTipo.appendChild(textTipo);
+        // // colFecha.setAttribute("id",id);
+        // row.appendChild(colTipo);
+        // var colSexo = document.createElement("td");
+        // var textSexo = document.createTextNode(sexo);
+        // colSexo.addEventListener("dblclick",modificarDatos);
+        // colSexo.appendChild(textSexo);
+        // colSexo.setAttribute("id",id);
+        // row.appendChild(colSexo);
+        // tcuerpo.appendChild(row);
+    }
+    clase8.agregarTablaFiltrada = agregarTablaFiltrada;
     function modificarDatos(event) {
         // var index = celda.parentNode.parentNode.rowIndex;
         event.preventDefault();
@@ -167,6 +212,7 @@ var clase8;
         var id = sacoID.getAttribute("id");
         // console.log(sacoID);
         divModificar.hidden = false;
+        var idNumber = parseInt(id);
         document.getElementById("nombre").value = nombre;
         document.getElementById("detalle").value = detalle;
         botonModificar.addEventListener("click", function () {
@@ -184,29 +230,24 @@ var clase8;
         });
         botonEliminar.addEventListener("click", function () {
             var tabla = document.getElementById("tcuerpo");
-            console.log(listaAnimales);
+            // console.log(listaAnimales);
             for (var index = 1; index < listaAnimales.length; index++) {
                 if (listaAnimales[index].getAttribute("id") === id) {
                     var celda = listaAnimales[index];
                     tabla.removeChild(celda);
+                    // console.log(listaMascotas);
                     divModificar.hidden = true;
-                    return true;
+                }
+            }
+            for (var i = 0; i < listaMascotas.length; i++) {
+                if (listaMascotas[i].id === idNumber) {
+                    listaMascotas.splice(i, 1);
+                    // console.log(listaMascotas);
                 }
             }
         });
     }
     clase8.modificarDatos = modificarDatos;
-    // function eliminarCelda(event){
-    // }
-    //     var sacoID = event.target.parentNode;
-    //     var id = sacoID.getAttribute("id");
-    //     /**obtengo la lista de personas en el html */
-    //     var listaAnimales = event.target.parentNode.parentNode;
-    // }
-    // listaAnimales:Array,nombre:String,detalle:String,tipo:tipoAnimal,id:Number
-    function modificarCelda() {
-    }
-    clase8.modificarCelda = modificarCelda;
     function agregarTabla() {
         var nombre = document.getElementById("inputNombre").value;
         var detalle = document.getElementById("inputDetalle").value;

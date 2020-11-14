@@ -50,12 +50,7 @@
         
     </div>
 
-    <select name="selectFilter" id="selectFilter">
-        <option value="" selected>Seleccione un animal a filtrar</option> 
-        <option value="Perro" id="selectPerroFilter">Perro</option> 
-        <option value="Gato" id="selectGatoFilter" >Gato</option>
-        <option value="Pajaro" id="selectPajaroFilter">Pajaro</option>
-    </select>
+    
 
     <table class="tabla" id="tabla">
         <thead>
@@ -69,6 +64,36 @@
 
         </thead>
         <tbody id="tcuerpo">
+            
+            
+
+        </tbody>
+        <tfoot>
+
+
+        </tfoot>
+
+    </table>
+
+    <select name="selectFilter" id="selectFilter">
+        <option value="" selected>Seleccione un animal a filtrar</option> 
+        <option value="Perro" id="selectPerroFilter">Perro</option> 
+        <option value="Gato" id="selectGatoFilter" >Gato</option>
+        <option value="Pajaro" id="selectPajaroFilter">Pajaro</option>
+    </select>
+
+    <table class="tablaFiltrada" id="tablaFiltrada">
+        <thead>
+            <tr>
+                <!-- columnas: -->
+                <th>Nombre</th> 
+                <th>Detalle del animal</th>
+                <th>Tipo</th>
+
+            </tr>
+
+        </thead>
+        <tbody id="tcuerpoFiltrado">
             
             
 

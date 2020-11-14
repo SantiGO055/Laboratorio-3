@@ -225,7 +225,7 @@ input[type=button]{
     right:-25%;
 }
 
-.tabla{
+.tabla,.tablaFiltrada{
     padding: 0px 20% 8px 5%;
     width: 100%;
     
