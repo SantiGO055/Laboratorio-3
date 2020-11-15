@@ -113,11 +113,13 @@ var clase8;
     clase8.AgregarAnimal = AgregarAnimal;
     function filterList(event) {
         event.preventDefault();
+        var tablaFiltrada = document.getElementById("tablaFiltrada");
+        tablaFiltrada.hidden = false;
         // console.log(listaMascotas);
         if (listaMascotas != null) {
             if (event.target.value === "Perro") {
                 var filtrado = listaMascotas.filter(function (item) {
-                    console.log(item.tipo == clase8.tipoAnimal.Perro);
+                    // console.log(item.tipo == tipoAnimal.Perro);
                     return item.tipo == clase8.tipoAnimal.Perro;
                 });
                 agregarTablaFiltrada(filtrado);
@@ -126,16 +128,6 @@ var clase8;
             }
             else {
             }
-            // if(item.tipo === tipoAnimal.Perro){
-            //     var perroFiltrado = listaMascotas.filter((itemPerro)=>{
-            //         return num>3;
-            //     });
-            //     console.log("Metodo FILTER");
-            //     console.log(numsFiltrados);
-            //     console.log("");
-            // }
-            // let aux = <Perro>item;
-            // console.log(listaMascotas);
         }
         else {
             // console.log(listaMascotas);
@@ -144,13 +136,20 @@ var clase8;
     clase8.filterList = filterList;
     function agregarTablaFiltrada(filtrado) {
         var tcuerpoFiltrado = document.getElementById("tcuerpoFiltrado");
-        var row = document.createElement("tr");
-        var colNombre = document.createElement("td");
-        console.log(filtrado);
+        // tcuerpoFiltrado.parentElement.removeChild(tcuerpoFiltrado);
+        tcuerpoFiltrado.innerHTML = "";
+        // tcuerpoFiltrado.childNodes.forEach((item)=> {
+        //      tcuerpoFiltrado.removeChild(item);
+        // });
+        console.log(tcuerpoFiltrado.childNodes);
         filtrado.forEach(function (item) {
             if (item.tipo === clase8.tipoAnimal.Perro) {
+                var id = 0;
                 var auxPerro = item;
-                console.log(item.nombre);
+                var row = document.createElement("tr");
+                var colNombre = document.createElement("td");
+                row.setAttribute("id", "" + id++);
+                // console.log(item.nombre);
                 var textNombrePerro = document.createTextNode(auxPerro.nombre);
                 colNombre.appendChild(textNombrePerro);
                 row.appendChild(colNombre);
@@ -164,7 +163,7 @@ var clase8;
                 row.appendChild(colTipo);
                 tcuerpoFiltrado.appendChild(row);
             }
-            console.log(item);
+            // console.log(item);
         });
         // var tcuerpo = (<HTMLInputElement>document.getElementById("tcuerpo"));
         // var row = document.createElement("tr");

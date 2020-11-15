@@ -17,20 +17,20 @@
 <body>
     <!-- <input type="button" id="btnAgregarGato" value="Click"> -->
     
-    <div id="div">
-        <div id="divCampos" class="divCampos" hidden>
-                <label for="nombre">Nombre:</label>
-                <input name="nombre" class="inputSinError" id="nombre" type="text" tabindex="1"placeholder="Nombre..." />
-                
-                <label for="apellido">Detalle:</label>
-                <input name="Detalle" class="inputSinError" id="detalle" type="text" tabindex="2" placeholder="Detalle..." />
+    <div id="divCampos" class="divCampos" hidden>
+            <label for="nombre">Nombre:</label>
+            <input name="nombre" class="inputSinError" id="nombre" type="text" tabindex="1"placeholder="Nombre..." />
             
-                <div class="botones">
-                    <input name="guardar" class="botonEliminar" id="botonEliminar" type="button" tabindex="5" value="Eliminar"/>
-                    <input name="guardar" class="botonModificar" id="botonModificar" type="button" tabindex="5" value="Modificar"/>
-                </div>
+            <label for="apellido">Detalle:</label>
+            <input name="Detalle" class="inputSinError" id="detalle" type="text" tabindex="2" placeholder="Detalle..." />
+        
+            <div class="botones">
+                <input name="guardar" class="botonEliminar" id="botonEliminar" type="button" tabindex="5" value="Eliminar"/>
+                <input name="guardar" class="botonModificar" id="botonModificar" type="button" tabindex="5" value="Modificar"/>
             </div>
         </div>
+    </div>
+    <div id="div">
     
         <select name="select" id="select">
             <option value="" selected>Seleccione un animal</option> 
@@ -82,7 +82,7 @@
         <option value="Pajaro" id="selectPajaroFilter">Pajaro</option>
     </select>
 
-    <table class="tablaFiltrada" id="tablaFiltrada">
+    <table class="tablaFiltrada" id="tablaFiltrada" hidden>
         <thead>
             <tr>
                 <!-- columnas: -->

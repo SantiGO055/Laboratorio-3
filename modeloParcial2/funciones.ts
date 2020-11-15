@@ -3,6 +3,7 @@ namespace clase8{
     var idPerro = 0;
     var idGato = 0;
     var idPajaro = 0;
+    
     window.addEventListener("load",ejecutarBoton);
     var listaMascotas:Array<Animal> = new Array<Animal>();
 
@@ -148,19 +149,24 @@ namespace clase8{
         // });
     }
     export function filterList(event){
+
         event.preventDefault();
-        
+        var tablaFiltrada = (<HTMLInputElement>document.getElementById("tablaFiltrada"));
+        tablaFiltrada.hidden = false;
         // console.log(listaMascotas);
         
+
         if(listaMascotas!=null){
 
             if(event.target.value === "Perro"){
                 
                 var filtrado = listaMascotas.filter((item)=>{
-                    console.log(item.tipo == tipoAnimal.Perro);
+                    // console.log(item.tipo == tipoAnimal.Perro);
                     return item.tipo == tipoAnimal.Perro;
                 });
                 agregarTablaFiltrada(filtrado);
+                
+                
             }
             else if(event.target.value === "Gato"){
                 
@@ -168,16 +174,6 @@ namespace clase8{
             else{
                 
             }
-            // if(item.tipo === tipoAnimal.Perro){
-            //     var perroFiltrado = listaMascotas.filter((itemPerro)=>{
-            //         return num>3;
-            //     });
-            //     console.log("Metodo FILTER");
-            //     console.log(numsFiltrados);
-            //     console.log("");
-            // }
-            // let aux = <Perro>item;
-            // console.log(listaMascotas);
         }
         else{
             // console.log(listaMascotas);
@@ -187,18 +183,27 @@ namespace clase8{
     export function agregarTablaFiltrada(filtrado:Array<Animal>){
         
         var tcuerpoFiltrado = (<HTMLInputElement>document.getElementById("tcuerpoFiltrado"));
-        var row = document.createElement("tr");
-        var colNombre = document.createElement("td");
+        // tcuerpoFiltrado.parentElement.removeChild(tcuerpoFiltrado);
+        tcuerpoFiltrado.innerHTML = "";
+        // tcuerpoFiltrado.childNodes.forEach((item)=> {
+            
+        //      tcuerpoFiltrado.removeChild(item);
+        // });
 
-        console.log(filtrado);
+        
+        console.log(tcuerpoFiltrado.childNodes);
         filtrado.forEach((item) => {
             if(item.tipo === tipoAnimal.Perro){
+                var id = 0;
                 let auxPerro = <Perro>item;
-                console.log(item.nombre);
+                var row = document.createElement("tr");
+                var colNombre = document.createElement("td");
+                row.setAttribute("id",""+id++);
+                // console.log(item.nombre);
                 var textNombrePerro = document.createTextNode(auxPerro.nombre);
                 colNombre.appendChild(textNombrePerro);
                 row.appendChild(colNombre);
-                
+
                 var colRaza = document.createElement("td");
                 var textRaza = document.createTextNode(auxPerro.raza);
                 colRaza.appendChild(textRaza);
@@ -211,7 +216,7 @@ namespace clase8{
                 
                 tcuerpoFiltrado.appendChild(row);
             }
-            console.log(item);
+            // console.log(item);
             
         });
         
