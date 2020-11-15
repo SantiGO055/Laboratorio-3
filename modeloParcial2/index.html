@@ -17,47 +17,60 @@
 <body>
     <!-- <input type="button" id="btnAgregarGato" value="Click"> -->
     
-    <div id="divCampos" class="divCampos" hidden>
-            <label for="nombre">Nombre:</label>
-            <input name="nombre" class="inputSinError" id="nombre" type="text" tabindex="1"placeholder="Nombre..." />
+    
+    <div id="div">
+        <div class="divSelect" class="divSelect">
+            <select name="select" id="select">
+                <option value="" selected>Seleccione un animal</option> 
+                <option value="Perro" id="selectPerro">Perro</option> 
+                <option value="Gato" id="selectGato" >Gato</option>
+                <option value="Pajaro" id="selectPajaro">Pajaro</option>
+            </select>
+            <select name="selectFilter" id="selectFilter" class="selectFilter" hidden>
+                <option value="" selected>Seleccione un animal a filtrar</option> 
+                <option value="Perro" id="selectPerroFilter">Perro</option> 
+                <option value="Gato" id="selectGatoFilter" >Gato</option>
+                <option value="Pajaro" id="selectPajaroFilter">Pajaro</option>
+            </select>
+        </div>
+
+        <div class="agregarAnimal" id="agregarAnimal" hidden>
+            <h3 id="titulo" class="titulo"></h3>
             
-            <label for="apellido">Detalle:</label>
-            <input name="Detalle" class="inputSinError" id="detalle" type="text" tabindex="2" placeholder="Detalle..." />
+
+            <label id="labelNombre" for="inputNombre">Nombre:</label>
+            <input type="text" id="inputNombre" name="inputNombre">
+
+            <label id="labelDetalle" for="inputDetalle">Detalle:</label>
+            <input type="text" id="inputDetalle" name="inputDetalle">
+            <input type="button" id="btnAgregar" class="btnAgregar" value="Agregar a la lista">
+        </div>
         
-            <div class="botones">
-                <input name="guardar" class="botonEliminar" id="botonEliminar" type="button" tabindex="5" value="Eliminar"/>
-                <input name="guardar" class="botonModificar" id="botonModificar" type="button" tabindex="5" value="Modificar"/>
-            </div>
+    </div>
+    <div id="divCampos" class="divCampos" hidden>
+        <!-- <label for="nombre">Nombre:</label> -->
+        <input name="nombre" class="inputSinError" id="nombre" type="text" tabindex="1"placeholder="Nombre..." />
+        
+        <!-- <label for="apellido">Detalle:</label> -->
+        <input name="Detalle" class="inputSinError" id="detalle" type="text" tabindex="2" placeholder="Caracteristica..." />
+    
+        <div class="botones">
+            <input name="guardar" class="botonEliminar" id="botonEliminar" type="button" tabindex="5" value="Eliminar"/>
+            <input name="guardar" class="botonModificar" id="botonModificar" type="button" tabindex="5" value="Modificar"/>
         </div>
     </div>
-    <div id="div">
-    
-        <select name="select" id="select">
-            <option value="" selected>Seleccione un animal</option> 
-            <option value="Perro" id="selectPerro">Perro</option> 
-            <option value="Gato" id="selectGato" >Gato</option>
-            <option value="Pajaro" id="selectPajaro">Pajaro</option>
-        </select>
-        <h2 id="titulo">Agregar animal</h2>
-        <input type="button" id="btnAgregar" class="btnAgregar" value="Agregar a la lista">
-
-        <label id="labelNombre" for="inputNombre">Nombre:</label>
-        <input type="text" id="inputNombre" name="inputNombre">
-
-        <label id="labelDetalle" for="inputDetalle">Detalle:</label>
-        <input type="text" id="inputDetalle" name="inputDetalle">
-
         
-    </div>
+    
 
     
 
     <table class="tabla" id="tabla">
+        
         <thead>
             <tr>
                 <!-- columnas: -->
                 <th>Nombre</th> 
-                <th>Detalle del animal</th>
+                <th>Caracteristica del animal</th>
                 <th>Tipo</th>
 
             </tr>
@@ -75,14 +88,10 @@
 
     </table>
 
-    <select name="selectFilter" id="selectFilter">
-        <option value="" selected>Seleccione un animal a filtrar</option> 
-        <option value="Perro" id="selectPerroFilter">Perro</option> 
-        <option value="Gato" id="selectGatoFilter" >Gato</option>
-        <option value="Pajaro" id="selectPajaroFilter">Pajaro</option>
-    </select>
+    
 
     <table class="tablaFiltrada" id="tablaFiltrada" hidden>
+        <h3 class="h3ListaFiltrada" id="h3ListaFiltrada" hidden>Lista Filtrada</h3>
         <thead>
             <tr>
                 <!-- columnas: -->

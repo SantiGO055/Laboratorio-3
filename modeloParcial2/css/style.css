@@ -1,15 +1,15 @@
 
 .divCampos{
-    background-color: #d4a172;
+    background-color: #999591;
     border: 1px black;
     border-radius: 5px;
-    text-align: left;
+    text-align: center;
     padding: 1px 10% 1px 0px;
-    margin: 10% 0% 0% 20%;
+    margin: 1% 0% 0% 10%;
     width: 25%;
     box-shadow: 5px 5px 5px 0px lightslategrey; 
     animation-name: abrir;
-    animation-duration: 1.2s;
+    animation-duration: 300ms;
     position: absolute;
     display: flex;
     
@@ -20,17 +20,72 @@
     z-index: 2; 
     left:15%; 
 } 
-[hidden]{
-    display:none;
+.selectFilter{
+    animation-name: slideInSelect;
+    position: absolute;
+    animation-duration: 300ms;
+    left: 85%;
+    top:328%;
+    margin-left: 3%;
 }
+@keyframes slideInSelect{
+    from{
+        opacity: 0;
+        margin-left: 2%;
+    }
+    to{
+        opacity: 1;
+        margin-left: 3%;
+    }
+}
+.divSelect{
+    display:flex;
+    position: relative;
+    left: -7%;
+}
+.agregarAnimal{
+    margin: -2.5% 35% 0 35%;
+    
+    display: flex;
+    flex-direction: column;
 
+    justify-content: center;
 
+    animation-name: abrirCampos;
+    animation-duration: 300ms;
+}
+.titulo{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5% 0 1% 38%;
+}
+.h3ListaFiltrada{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5% 0 1% 47%;
 
+}
 .div{
    display: flex;
    justify-content: center;
+   
+
 }
 
+@keyframes abrirCampos{
+    from {
+        margin-top:-4%;
+        opacity: 0;
+
+    }
+    
+    to {
+        margin-top: -2.5%;
+        opacity: 1;
+   }
+}
 
 @keyframes abrir{
     from{
@@ -116,8 +171,10 @@
 input{
     box-sizing: content-box;
 }
-input[type=text],select{
+input[type=text],select,label {
     display:flex;
+    flex-direction: column;
+
     padding: 6px 5px;
     margin: 2%;
     text-align: center;
@@ -184,6 +241,8 @@ input[type=button]{
     font-size: 100%;
     cursor: pointer;
     text-align: center;
+    padding: 1% 2% 2% 0;
+    margin: 1% 0 2% 0;
 }
 /* 
 .esconderDiv{
@@ -226,11 +285,12 @@ input[type=button]{
     right:-25%;
 }
 
+
 .tabla,.tablaFiltrada{
-    padding: 0px 20% 8px 5%;
+    padding: 0px 20% 8px 15%;
     width: 100%;
     
-    animation-duration: 0.5s;
+    animation-duration: 300ms;
     animation-name: slidein;
     
     animation-direction: alternate;
@@ -247,7 +307,7 @@ input[type=button]{
    }
 }
 th,td{
-    text-align: left;
+    text-align: center;
     padding: 8px;
 }
 th{
@@ -285,3 +345,6 @@ html{
     bottom: 2rem;
     right: 1rem;
 } */
+[hidden]{
+    display:none;
+}

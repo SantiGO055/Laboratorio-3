@@ -27,6 +27,8 @@ namespace clase8{
     }
     export function prepararCampos(event){
         event.preventDefault();
+        let mostrarCamposAgregar = (<HTMLInputElement>document.getElementById("agregarAnimal"));
+        mostrarCamposAgregar.hidden = false;
         // console.log("asd");
         let botonAgregar = document.getElementById("btnAgregar");
         
@@ -47,11 +49,14 @@ namespace clase8{
             labelDetalle.textContent = "Vidas";
             botonAgregar.addEventListener("click",agregarGatoALaLista);
         }
-        else{
+        else if(event.target.value === "Pajaro"){
             titulo.textContent = "Agregar pajaro";
             labelDetalle.textContent = "Tamaño";
             botonAgregar.addEventListener("click",agregarPajaroALaLista);
             
+        }
+        else{
+            mostrarCamposAgregar.hidden = true;
         }
         // console.log(event.target.value);
 
@@ -97,7 +102,7 @@ namespace clase8{
         // console.log(nombre);
         var tamaño = (<HTMLInputElement>document.getElementById("inputDetalle")).value;
         
-        let mascotaPajaro:Pajaro = new Pajaro(nombre,tamaño,idPajaro++);
+        let mascotaPajaro:Pajaro = new Pajaro(nombre,Number(tamaño),idPajaro++);
         btnAgregar.removeEventListener("click", agregarPajaroALaLista);
         
         AgregarAnimal(mascotaPajaro);
@@ -150,9 +155,12 @@ namespace clase8{
     }
     export function filterList(event){
 
+
         event.preventDefault();
         var tablaFiltrada = (<HTMLInputElement>document.getElementById("tablaFiltrada"));
+        var h3ListaFiltrada = (<HTMLInputElement>document.getElementById("h3ListaFiltrada"));
         tablaFiltrada.hidden = false;
+        h3ListaFiltrada.hidden = false;
         // console.log(listaMascotas);
         
 
@@ -176,6 +184,10 @@ namespace clase8{
                     return item.tipo == tipoAnimal.Pajaro;
                 });
                 agregarTablaFiltrada(filtrado);                
+            }
+            else{
+                tablaFiltrada.hidden = true;
+                h3ListaFiltrada.hidden = true;
             }
         }
         else{
@@ -238,6 +250,30 @@ namespace clase8{
 
                 let colTipo = document.createElement("td");
                 let textTipo = document.createTextNode(auxGato.tipo);
+                colTipo.appendChild(textTipo);
+                row.appendChild(colTipo);
+                
+                tcuerpoFiltrado.appendChild(row);
+            }
+            else if(item.tipo === tipoAnimal.Pajaro){
+                var id = 0;
+                let auxPajaro = <Pajaro>item;
+                let row = document.createElement("tr");
+                let colNombre = document.createElement("td");
+                row.setAttribute("id",""+id++);
+                // console.log(item.nombre);
+                let textNombrePajaro = document.createTextNode(auxPajaro.nombre);
+                colNombre.appendChild(textNombrePajaro);
+                row.appendChild(colNombre);
+
+                console.log(auxPajaro.tamaño);
+                let colTamaño = document.createElement("td");
+                let textTamaño = document.createTextNode("" +auxPajaro.tamaño);
+                colTamaño.appendChild(textTamaño);
+                row.appendChild(colTamaño);
+
+                let colTipo = document.createElement("td");
+                let textTipo = document.createTextNode(auxPajaro.tipo);
                 colTipo.appendChild(textTipo);
                 row.appendChild(colTipo);
                 
@@ -372,6 +408,10 @@ namespace clase8{
     
     export function agregarTabla(){
         
+        //poner hidden false a select de filtro
+        let selectFilter = (<HTMLInputElement>document.getElementById("selectFilter"));
+        selectFilter.hidden = false;
+
         let nombre = (<HTMLInputElement>document.getElementById("inputNombre")).value;
         let detalle = (<HTMLInputElement>document.getElementById("inputDetalle")).value;
         let tipo = (<HTMLInputElement>document.getElementById("select")).value;

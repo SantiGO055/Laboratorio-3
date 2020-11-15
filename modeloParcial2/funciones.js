@@ -20,6 +20,8 @@ var clase8;
     clase8.ejecutarBoton = ejecutarBoton;
     function prepararCampos(event) {
         event.preventDefault();
+        var mostrarCamposAgregar = document.getElementById("agregarAnimal");
+        mostrarCamposAgregar.hidden = false;
         // console.log("asd");
         var botonAgregar = document.getElementById("btnAgregar");
         var labelDetalle = document.getElementById("labelDetalle");
@@ -35,10 +37,13 @@ var clase8;
             labelDetalle.textContent = "Vidas";
             botonAgregar.addEventListener("click", agregarGatoALaLista);
         }
-        else {
+        else if (event.target.value === "Pajaro") {
             titulo.textContent = "Agregar pajaro";
             labelDetalle.textContent = "Tamaño";
             botonAgregar.addEventListener("click", agregarPajaroALaLista);
+        }
+        else {
+            mostrarCamposAgregar.hidden = true;
         }
         // console.log(event.target.value);
         // inputDetalle.setAttribute("id","raza");
@@ -71,7 +76,7 @@ var clase8;
         var nombre = document.getElementById("inputNombre").value;
         // console.log(nombre);
         var tamaño = document.getElementById("inputDetalle").value;
-        var mascotaPajaro = new clase8.Pajaro(nombre, tamaño, idPajaro++);
+        var mascotaPajaro = new clase8.Pajaro(nombre, Number(tamaño), idPajaro++);
         btnAgregar.removeEventListener("click", agregarPajaroALaLista);
         AgregarAnimal(mascotaPajaro);
     }
@@ -114,7 +119,9 @@ var clase8;
     function filterList(event) {
         event.preventDefault();
         var tablaFiltrada = document.getElementById("tablaFiltrada");
+        var h3ListaFiltrada = document.getElementById("h3ListaFiltrada");
         tablaFiltrada.hidden = false;
+        h3ListaFiltrada.hidden = false;
         // console.log(listaMascotas);
         if (listaMascotas != null) {
             if (event.target.value === "Perro") {
@@ -134,6 +141,10 @@ var clase8;
                     return item.tipo == clase8.tipoAnimal.Pajaro;
                 });
                 agregarTablaFiltrada(filtrado);
+            }
+            else {
+                tablaFiltrada.hidden = true;
+                h3ListaFiltrada.hidden = true;
             }
         }
         else {
@@ -188,6 +199,27 @@ var clase8;
                 row.appendChild(colVida);
                 var colTipo = document.createElement("td");
                 var textTipo = document.createTextNode(auxGato.tipo);
+                colTipo.appendChild(textTipo);
+                row.appendChild(colTipo);
+                tcuerpoFiltrado.appendChild(row);
+            }
+            else if (item.tipo === clase8.tipoAnimal.Pajaro) {
+                var id = 0;
+                var auxPajaro = item;
+                var row = document.createElement("tr");
+                var colNombre = document.createElement("td");
+                row.setAttribute("id", "" + id++);
+                // console.log(item.nombre);
+                var textNombrePajaro = document.createTextNode(auxPajaro.nombre);
+                colNombre.appendChild(textNombrePajaro);
+                row.appendChild(colNombre);
+                console.log(auxPajaro.tamaño);
+                var colTamaño = document.createElement("td");
+                var textTamaño = document.createTextNode("" + auxPajaro.tamaño);
+                colTamaño.appendChild(textTamaño);
+                row.appendChild(colTamaño);
+                var colTipo = document.createElement("td");
+                var textTipo = document.createTextNode(auxPajaro.tipo);
                 colTipo.appendChild(textTipo);
                 row.appendChild(colTipo);
                 tcuerpoFiltrado.appendChild(row);
@@ -277,6 +309,9 @@ var clase8;
     }
     clase8.modificarDatos = modificarDatos;
     function agregarTabla() {
+        //poner hidden false a select de filtro
+        var selectFilter = document.getElementById("selectFilter");
+        selectFilter.hidden = false;
         var nombre = document.getElementById("inputNombre").value;
         var detalle = document.getElementById("inputDetalle").value;
         var tipo = document.getElementById("select").value;
