@@ -5,6 +5,7 @@ var clase8;
             this.nombre = nombre;
             this.tipo = clase8.tipoAnimal.Gato;
             this.id = id;
+            this.vidas = vidas;
         }
         Gato.prototype.hacerRuido = function () {
             return "Miau";

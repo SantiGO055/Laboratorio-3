@@ -81,12 +81,12 @@ namespace clase8{
         var nombre = (<HTMLInputElement>document.getElementById("inputNombre")).value;
         // console.log(nombre);
         var vidas = (<HTMLInputElement>document.getElementById("inputDetalle")).value;
-        
+        // console.log(Number(vidas));
         
         let mascotaGato:Gato = new Gato(nombre,Number(vidas),idGato++);
         
         btnAgregar.removeEventListener("click", agregarGatoALaLista);
-        // console.log(mascotaGato);
+        
         AgregarAnimal(mascotaGato);
         
         
@@ -161,18 +161,21 @@ namespace clase8{
             if(event.target.value === "Perro"){
                 
                 var filtrado = listaMascotas.filter((item)=>{
-                    // console.log(item.tipo == tipoAnimal.Perro);
                     return item.tipo == tipoAnimal.Perro;
                 });
                 agregarTablaFiltrada(filtrado);
-                
-                
             }
             else if(event.target.value === "Gato"){
-                
+                var filtrado = listaMascotas.filter((item)=>{
+                    return item.tipo == tipoAnimal.Gato;
+                });
+                agregarTablaFiltrada(filtrado);
             }
-            else{
-                
+            else if(event.target.value === "Pajaro"){
+                var filtrado = listaMascotas.filter((item)=>{
+                    return item.tipo == tipoAnimal.Pajaro;
+                });
+                agregarTablaFiltrada(filtrado);                
             }
         }
         else{
@@ -189,28 +192,52 @@ namespace clase8{
             
         //      tcuerpoFiltrado.removeChild(item);
         // });
-
+        console.log(filtrado);
         
         console.log(tcuerpoFiltrado.childNodes);
         filtrado.forEach((item) => {
             if(item.tipo === tipoAnimal.Perro){
                 var id = 0;
                 let auxPerro = <Perro>item;
-                var row = document.createElement("tr");
-                var colNombre = document.createElement("td");
+                let row = document.createElement("tr");
+                let colNombre = document.createElement("td");
                 row.setAttribute("id",""+id++);
                 // console.log(item.nombre);
-                var textNombrePerro = document.createTextNode(auxPerro.nombre);
+                let textNombrePerro = document.createTextNode(auxPerro.nombre);
                 colNombre.appendChild(textNombrePerro);
                 row.appendChild(colNombre);
 
-                var colRaza = document.createElement("td");
-                var textRaza = document.createTextNode(auxPerro.raza);
+                let colRaza = document.createElement("td");
+                let textRaza = document.createTextNode(auxPerro.raza);
                 colRaza.appendChild(textRaza);
                 row.appendChild(colRaza);
 
-                var colTipo = document.createElement("td");
-                var textTipo = document.createTextNode(auxPerro.tipo);
+                let colTipo = document.createElement("td");
+                let textTipo = document.createTextNode(auxPerro.tipo);
+                colTipo.appendChild(textTipo);
+                row.appendChild(colTipo);
+                
+                tcuerpoFiltrado.appendChild(row);
+            }
+            else if(item.tipo === tipoAnimal.Gato){
+                var id = 0;
+                let auxGato = <Gato>item;
+                let row = document.createElement("tr");
+                let colNombre = document.createElement("td");
+                row.setAttribute("id",""+id++);
+                // console.log(item.nombre);
+                let textNombreGato = document.createTextNode(auxGato.nombre);
+                colNombre.appendChild(textNombreGato);
+                row.appendChild(colNombre);
+
+                console.log(auxGato.vidas);
+                let colVida = document.createElement("td");
+                let textVida = document.createTextNode("" +auxGato.vidas);
+                colVida.appendChild(textVida);
+                row.appendChild(colVida);
+
+                let colTipo = document.createElement("td");
+                let textTipo = document.createTextNode(auxGato.tipo);
                 colTipo.appendChild(textTipo);
                 row.appendChild(colTipo);
                 
@@ -423,13 +450,5 @@ namespace clase8{
 
     //     divCampos.appendChild(divModificarEliminar);
     // }
-    export function ModificarAnimal(){
-        
-    }
-    export function EliminarAnimal(){
-        
-    }
-    export function MostrarAnimal(){
-        
-    }
+    
 }

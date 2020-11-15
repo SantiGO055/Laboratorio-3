@@ -9,6 +9,7 @@ namespace clase8{
             this.nombre = nombre;
             this.tipo = tipoAnimal.Gato;
             this.id = id;
+            this.vidas = vidas;
         }
         
         hacerRuido():any{
