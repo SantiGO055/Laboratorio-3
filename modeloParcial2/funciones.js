@@ -20,7 +20,7 @@ var clase8;
         inputDetalle.addEventListener("blur", validarCampoDetalle);
         filter.addEventListener("change", filterList);
         // let filter = document.getElementById("selectFilter");
-        botonAgregar.addEventListener("click", agregarPerroALaLista);
+        // botonAgregar.addEventListener("click",agregarPerroALaLista);
         // filter.addEventListener("change",filterList);
         // botonAgregarGato.addEventListener("click",AgregarAnimal);
         // botonAgregarPajaro.addEventListener("click",AgregarAnimal);
@@ -349,15 +349,62 @@ var clase8;
         botonModificar.addEventListener("click", function () {
             var nombre = document.getElementById("nombre").value;
             var detalle = document.getElementById("detalle").value;
+            // console.log(listaMascotas);
             // console.log("asd");
+            listaMascotas.forEach(function (item) {
+                console.log(item);
+                if (item.tipo == clase8.tipoAnimal.Perro) {
+                    // console.log(item.id);
+                    // console.log(id);
+                    if (item.id == id) {
+                        item.id = id;
+                        item.nombre = nombre;
+                        item.raza = detalle;
+                    }
+                }
+                else if (item.tipo == clase8.tipoAnimal.Gato) {
+                    console.log(item.id);
+                    console.log(id);
+                    if (item.id == id && typeof (detalle) === 'number') {
+                        item.id = id;
+                        item.nombre = nombre;
+                        item.vidas = parseInt(detalle);
+                    }
+                    else {
+                        notificacion(false);
+                    }
+                }
+                else if (item.tipo == clase8.tipoAnimal.Pajaro) {
+                    if (item.id == id) {
+                        item.id = id;
+                        item.nombre = nombre;
+                        item.tamaño = parseInt(detalle);
+                    }
+                }
+            });
             for (var index = 1; index < listaAnimales.length; index++) {
                 if (listaAnimales[index].getAttribute("id") === id) {
+                    console.log(id);
+                    // listaMascotas.forEach(item => {
+                    //     if(item.tipo === tipo && item.id === id){
+                    //         console.log(item);
+                    //         item.id = id;
+                    //         item.nombre = nombre;
+                    //         item.tipo = tipo;
+                    //     }
+                    // });
                     listaAnimales[index].childNodes[0].textContent = nombre;
-                    listaAnimales[index].childNodes[1].textContent = detalle;
+                    if (typeof (detalle) === 'number') {
+                        listaAnimales[index].childNodes[1].textContent = detalle;
+                    }
+                    else {
+                        notificacion(false);
+                    }
                     divModificar.hidden = true;
                     return true;
                 }
             }
+            console.log(listaMascotas);
         });
         botonEliminar.addEventListener("click", function () {
             var tabla = document.getElementById("tcuerpo");

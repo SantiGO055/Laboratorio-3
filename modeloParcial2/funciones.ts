@@ -27,7 +27,7 @@ namespace clase8{
         // let filter = document.getElementById("selectFilter");
 
 
-        botonAgregar.addEventListener("click",agregarPerroALaLista);
+        // botonAgregar.addEventListener("click",agregarPerroALaLista);
         // filter.addEventListener("change",filterList);
         // botonAgregarGato.addEventListener("click",AgregarAnimal);
         // botonAgregarPajaro.addEventListener("click",AgregarAnimal);
@@ -424,18 +424,69 @@ namespace clase8{
             botonModificar.addEventListener("click",()=>{
                 let nombre = (<HTMLInputElement>document.getElementById("nombre")).value;
                 let detalle = (<HTMLInputElement>document.getElementById("detalle")).value;
-                
+                // console.log(listaMascotas);
                 // console.log("asd");
+                listaMascotas.forEach(item => {
+                    console.log(item);
+                    if(item.tipo == tipoAnimal.Perro){
+                    // console.log(item.id);
+                    // console.log(id);
+
+                        if(item.id == id){
+                            (<Perro>item).id = id;
+                            (<Perro>item).nombre = nombre;
+                            (<Perro>item).raza = detalle;
+                        }
+                    }
+                    else if(item.tipo == tipoAnimal.Gato){
+                        console.log(item.id);
+                        console.log(id);
+                        if(item.id == id && typeof(detalle) === 'number'){
+                            (<Gato>item).id = id;
+                            (<Gato>item).nombre = nombre;
+                            (<Gato>item).vidas = parseInt(detalle);
+                        }
+                        else{
+                            notificacion(false);
+                        }
+                        
+                    }
+                    else if(item.tipo == tipoAnimal.Pajaro){
+                        
+                        if(item.id == id){
+                            (<Pajaro>item).id = id;
+                            (<Pajaro>item).nombre = nombre;
+                            (<Pajaro>item).tamaño = parseInt(detalle);
+                        }
+                    }
+                    
+                });
                 for (let index = 1; index < listaAnimales.length; index++) {
                     
                     if(listaAnimales[index].getAttribute("id") === id){
-                        
+                        console.log(id);
+                        // listaMascotas.forEach(item => {
+                        //     if(item.tipo === tipo && item.id === id){
+                        //         console.log(item);
+                        //         item.id = id;
+                        //         item.nombre = nombre;
+                        //         item.tipo = tipo;
+                        //     }
+                        // });
+
                         listaAnimales[index].childNodes[0].textContent = nombre;
-                        listaAnimales[index].childNodes[1].textContent = detalle;
+                        if(typeof(detalle) === 'number'){
+                            listaAnimales[index].childNodes[1].textContent = detalle;
+                        }
+                        else{
+                            notificacion(false);
+                        }
                         divModificar.hidden = true;
                         return true;
                     }
                 }
+                console.log(listaMascotas);
+                
             });
 
             botonEliminar.addEventListener("click",()=>{
